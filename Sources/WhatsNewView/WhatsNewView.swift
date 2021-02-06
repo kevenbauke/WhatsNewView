@@ -75,12 +75,8 @@ public struct WhatsNewView: View {
 						.bold()
 				}
 			}
-			.frame(minWidth: 0, maxWidth: .infinity)
-			.padding()
-			.foregroundColor(.white)
-			.background(configuration?.accentColor ?? Color.accentColor)
-			.cornerRadius(10)
 		}
+		.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: configuration?.accentColor ?? Color.accentColor))
 		.padding(EdgeInsets(top: margin/2, leading: margin, bottom: margin/2, trailing: margin))
 	}
 
@@ -92,4 +88,23 @@ public struct WhatsNewView: View {
 		self.plistPath = plistPath
 		self.configuration = configuration
 	}
+}
+
+@available(iOS 13.0, *)
+private struct RoundedRectangleButtonStyle: ButtonStyle {
+	var backgroundColor: Color
+
+  func makeBody(configuration: Configuration) -> some View {
+	HStack {
+	  configuration.label
+		.frame(minWidth: 0, maxWidth: .infinity)
+		.padding()
+		.foregroundColor(.white)
+		.background(backgroundColor)
+		.cornerRadius(10)
+	}
+	.padding(.horizontal)
+	.scaleEffect(configuration.isPressed ? 0.97 : 1)
+	.animation(.easeOut)
+  }
 }

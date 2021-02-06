@@ -30,11 +30,11 @@ struct ContentView: View {
 		return features
 	}
 
-	private var configuration: WhatsNewConfiguration {
+	private var configurationOnly: WhatsNewConfiguration {
 		var configuration = WhatsNewConfiguration()
 		configuration.title = "Welcome to"
-		configuration.accentedTitle = "My App"
-		configuration.description = "Some awesome description"
+		configuration.accentedTitle = "WhatsNewView"
+		configuration.description = "This view can help you give that extra information your user needs at certain points in your app."
 		configuration.accentColor = .purple
 
 		configuration.features = features
@@ -47,16 +47,63 @@ struct ContentView: View {
 	}
 
 	var body: some View {
-		Text("Main Content View")
+		Text("WhatsNewView Example")
 			.font(.largeTitle)
 			.padding()
-		Button("Show Sheet", action: {
-			showWhatsNewScreen.toggle()
-		})
-		.sheet(isPresented: $showWhatsNewScreen) {
-			WhatsNewView(configuration: configuration)
+
+		VStack(spacing: 8) {
+			Button(action: {
+				showWhatsNewScreen.toggle()
+			}) {
+				Text("Configuration (Code only)")
+					.bold()
+			}
+			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .red))
+			.sheet(isPresented: $showWhatsNewScreen) {
+				WhatsNewView(configuration: configurationOnly)
+			}
+
+			Button(action: {
+				showWhatsNewScreen.toggle()
+			}) {
+				Text("Plist + Configuration")
+					.bold()
+			}
+			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .orange))
+			.sheet(isPresented: $showWhatsNewScreen) {
+				WhatsNewView(configuration: configurationOnly)
+			}
+
+			Button(action: {
+				showWhatsNewScreen.toggle()
+			}) {
+				Text("Version Plist")
+					.bold()
+			}
+			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .green))
+			.sheet(isPresented: $showWhatsNewScreen) {
+				WhatsNewView(configuration: configurationOnly)
+			}
 		}
 	}
+}
+
+private struct RoundedRectangleButtonStyle: ButtonStyle {
+	var backgroundColor: Color
+
+  func makeBody(configuration: Configuration) -> some View {
+	HStack {
+	  configuration.label
+		.frame(minWidth: 0, maxWidth: .infinity)
+		.padding()
+		.foregroundColor(.white)
+		.background(backgroundColor)
+		.cornerRadius(10)
+	}
+	.padding(.horizontal)
+	.scaleEffect(configuration.isPressed ? 0.97 : 1)
+	.animation(.easeOut)
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
