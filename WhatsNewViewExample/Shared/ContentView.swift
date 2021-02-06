@@ -11,11 +11,11 @@ import WhatsNewView
 struct ContentView: View {
 	@State private var showWhatsNewScreen = false
 
-	private lazy var configration: WhatsNewConfiguration = {
-		let configuration = WhatsNewConfiguration()
+	private var configuration: WhatsNewConfiguration {
+		var configuration = WhatsNewConfiguration()
 		configuration.accentColor = .purple
 		return configuration
-	}()
+	}
 
 	var body: some View {
 		Text("Main Content View")

@@ -14,10 +14,10 @@ public struct WhatsNewView: View {
 	public var body: some View {
 		VStack(spacing: 8) {
 			Group {
-				Text("Welcome")
+				Text("Welcome to ")
 					.bold()
 					+
-					Text(" to " + (Bundle.main.displayName ?? ""))
+					Text(Bundle.main.displayName ?? "")
 					.bold()
 					.foregroundColor(configuration?.accentColor ?? .accentColor)
 			}

@@ -19,6 +19,7 @@ extension View {
 
 extension Bundle {
 	var displayName: String? {
-		return object(forInfoDictionaryKey: "CFBundleDisplayName") as? String
+		return object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ??
+			object(forInfoDictionaryKey: "CFBundleName") as? String
 	}
 }
