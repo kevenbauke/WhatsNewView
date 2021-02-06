@@ -2,32 +2,28 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 struct WhatsNewFeatureView: View {
-	private let image: Image?
-	private let imageColor: Color?
-	private let headlineText: Text?
-	private let bodyText: Text
+	private let feature: WhatsNewFeature
 
-	init(image: Image? = nil, imageColor: Color? = nil, headlineText: Text? = nil, bodyText: Text) {
-		self.image = image
-		self.imageColor = imageColor
-		self.headlineText = headlineText
-		self.bodyText = bodyText
+	init(feature: WhatsNewFeature) {
+		self.feature = feature
 	}
 
 	var body: some View {
 		HStack {
-			image?
+			feature.image?
 				.resizable()
 				.aspectRatio(contentMode: .fit)
 				.frame(width: 50, height: 50)
 				.padding(.trailing)
-				.foregroundColor(imageColor ?? .primary)
+				.foregroundColor(feature.imageColor ?? .primary)
 
 			VStack(spacing: 4) {
-				headlineText?
-					.font(.headline)
-					.leftAligned()
-				bodyText
+				if let title = feature.title {
+					Text(title)
+						.font(.headline)
+						.leftAligned()
+				}
+				Text(feature.description)
 					.leftAligned()
 			}
 		}
