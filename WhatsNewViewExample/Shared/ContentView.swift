@@ -11,6 +11,12 @@ import WhatsNewView
 struct ContentView: View {
 	@State private var showWhatsNewScreen = false
 
+	private lazy var configration: WhatsNewConfiguration = {
+		let configuration = WhatsNewConfiguration()
+		configuration.accentColor = .purple
+		return configuration
+	}()
+
 	var body: some View {
 		Text("Main Content View")
 			.font(.largeTitle)
@@ -19,7 +25,7 @@ struct ContentView: View {
 			showWhatsNewScreen.toggle()
 		})
 		.sheet(isPresented: $showWhatsNewScreen) {
-			WhatsNewView(configuration: WhatsNewConfiguration(accentColor: .red))
+			WhatsNewView(configuration: configuration)
 		}
 	}
 }
