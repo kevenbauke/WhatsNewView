@@ -23,7 +23,7 @@ struct WhatsNewFeatureView: View {
 				.aspectRatio(contentMode: .fit)
 				.frame(width: 50, height: 50)
 				.padding(.trailing)
-				.foregroundColor(imageColor ?? (colorScheme == .light ? Color.black : Color.white))
+				.foregroundColor(imageColor)
 
 			VStack(spacing: 4) {
 				headlineText?
