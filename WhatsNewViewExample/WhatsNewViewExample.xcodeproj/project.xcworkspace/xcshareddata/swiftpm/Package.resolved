@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "WhatsNewView",
+        "repositoryURL": "/Users/kevenbauke/Desktop/Dev/WhatsNewView",
+        "state": {
+          "branch": "main",
+          "revision": "77b9f46b7145bcf90ca67a1bcaac5e0a7fb5efdc",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
