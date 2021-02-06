@@ -56,6 +56,8 @@ public struct WhatsNewView: View {
 		}
 		.padding(EdgeInsets(top: margin/2, leading: margin, bottom: margin/2, trailing: margin))
 	}
+
+	public init() {}
 }
 
 @available(iOS 13.0, *)
