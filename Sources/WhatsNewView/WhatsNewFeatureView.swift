@@ -2,14 +2,12 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 struct WhatsNewFeatureView: View {
-	@Environment(\.colorScheme) private var colorScheme
-
 	private let image: Image?
 	private let imageColor: Color?
 	private let headlineText: Text?
 	private let bodyText: Text
 
-	init(image: Image? = nil, imageColor: Color? = .black, headlineText: Text? = nil, bodyText: Text) {
+	init(image: Image? = nil, imageColor: Color? = nil, headlineText: Text? = nil, bodyText: Text) {
 		self.image = image
 		self.imageColor = imageColor
 		self.headlineText = headlineText
