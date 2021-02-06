@@ -17,13 +17,22 @@ public struct WhatsNewView: View {
 		VStack(spacing: 8) {
 			Group {
 				if let title = configuration?.title {
-					Text(title)
-						.bold()
+					if let accentedTitle = configuration?.accentedTitle {
+						Text(title)
+							.bold()
+						+
+						Text(accentedTitle)
+							.bold()
+							.foregroundColor(configuration?.accentColor ?? .accentColor)
+					} else {
+						Text(title)
+							.bold()
+					}
 				} else {
 					Text("Welcome to ")
 						.bold()
 						+
-						Text(Bundle.main.displayName ?? "")
+					Text(Bundle.main.displayName ?? "")
 						.bold()
 						.foregroundColor(configuration?.accentColor ?? .accentColor)
 				}
