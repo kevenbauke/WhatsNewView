@@ -21,7 +21,7 @@ public struct WhatsNewView: View {
 						Text(title)
 							.bold()
 						+
-						Text(accentedTitle)
+						Text(" " + accentedTitle)
 							.bold()
 							.foregroundColor(configuration?.accentColor ?? .accentColor)
 					} else {
