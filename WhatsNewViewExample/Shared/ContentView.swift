@@ -19,7 +19,7 @@ struct ContentView: View {
 			showWhatsNewScreen.toggle()
 		})
 		.sheet(isPresented: $showWhatsNewScreen) {
-			WhatsNewView()
+			WhatsNewView(configuration: WhatsNewConfiguration(accentColor: .red))
 		}
 	}
 }
