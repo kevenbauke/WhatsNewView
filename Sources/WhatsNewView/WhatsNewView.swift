@@ -7,9 +7,7 @@ let listMargin: CGFloat = 25
 public struct WhatsNewView: View {
 	private let margin: CGFloat = 40
 	private let listMargin: CGFloat = 25
-
-	private var plistPath: String?
-	private var configuration: WhatsNewConfiguration?
+	public var configuration: WhatsNewConfiguration?
 
 	@Environment(\.presentationMode) private var presentationMode
 
@@ -84,9 +82,10 @@ public struct WhatsNewView: View {
 		self.configuration = configuration
 	}
 
-	public init(plistPath: String, configuration: WhatsNewConfiguration? = nil) {
-		self.plistPath = plistPath
-		self.configuration = configuration
+	public init(plistName: String) {
+		if let path = Bundle.main.path(forResource: plistName, ofType: "plist") {
+			self.configuration = WhatsNewConfiguration(dictionary: NSDictionary(contentsOfFile: path) as! Dictionary<String, Any>)
+		 }
 	}
 }
 

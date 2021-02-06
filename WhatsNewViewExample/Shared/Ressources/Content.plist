@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Title</key>
+	<string>Hello</string>
+	<key>AccentedTitle</key>
+	<string>World</string>
+	<key>Description</key>
+	<string>This view can help you give that extra information your user needs at certain points in your app.</string>
+	<key>ButtonTitle</key>
+	<string>OK</string>
+	<key>Features</key>
+	<array>
+		<dict>
+			<key>Image</key>
+			<string>figure.wave</string>
+			<key>Title</key>
+			<string>A welcome screen</string>
+			<key>Description</key>
+			<string>Welcome your users and introduce important functionality.</string>
+		</dict>
+		<dict>
+			<key>Image</key>
+			<string>megaphone.fill</string>
+			<key>Title</key>
+			<string>A new version screen</string>
+			<key>Description</key>
+			<string>Introduce your users to great new features in new versions.</string>
+		</dict>
+		<dict>
+			<key>Image</key>
+			<string>text.book.closed.fill</string>
+			<key>Title</key>
+			<string>A simple how to screen</string>
+			<key>Description</key>
+			<string>Help your users and explain a screen or a feature.</string>
+		</dict>
+	</array>
+</dict>
+</plist>
