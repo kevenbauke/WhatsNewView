@@ -17,12 +17,15 @@ extension View {
 	}
 }
 
-//extension Bundle {
-//	var displayName: String? {
-//		return object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ??
-//			object(forInfoDictionaryKey: "CFBundleName") as? String
-//	}
-//}
+extension Bundle {
+	var version: String {
+		return infoDictionary?["CFBundleShortVersionString"] as! String
+	}
+
+	var build: String {
+		return infoDictionary?["CFBundleVersion"] as! String
+	}
+}
 
 extension UIColor {
 	convenience init(hexString: String) {

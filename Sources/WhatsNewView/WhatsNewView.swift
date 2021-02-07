@@ -59,7 +59,8 @@ public struct WhatsNewView: View {
 				action()
 			}
 
-			self.presentationMode.wrappedValue.dismiss()
+			WhatsNewVersionRepository().setLastKnownVersion()
+			presentationMode.wrappedValue.dismiss()
 		}) {
 			Group {
 				if let buttonTitle = configuration?.buttonTitle {
@@ -89,7 +90,7 @@ public struct WhatsNewView: View {
 
 	public init?(versionPlistPath: String) {
 		if let versionDictionary = NSDictionary(contentsOfFile: versionPlistPath) as? Dictionary<String, Any> {
-			configuration = WhatsNewConfiguration(dictionary: versionDictionary)
+			configuration = WhatsNewConfiguration(versionDictionary: versionDictionary)
 		} else {
 			return nil
 		}

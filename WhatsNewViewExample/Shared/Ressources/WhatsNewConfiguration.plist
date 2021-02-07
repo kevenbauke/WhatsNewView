@@ -8,8 +8,6 @@
 	<string>World</string>
 	<key>Description</key>
 	<string>This view can help you give that extra information your user needs at certain points in your app.</string>
-	<key>ButtonTitle</key>
-	<string>OK</string>
 	<key>AccentColor</key>
 	<string>#0A84FF</string>
 	<key>Features</key>
@@ -51,5 +49,7 @@
 			<string>Help your users and explain a screen or a feature.</string>
 		</dict>
 	</array>
+	<key>ButtonTitle</key>
+	<string>OK</string>
 </dict>
 </plist>

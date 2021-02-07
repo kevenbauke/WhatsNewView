@@ -54,10 +54,18 @@ struct ContentView: View {
 			case .configuration:
 				return WhatsNewView(configuration: ExampleData.configurationOnly)
 			case .plist:
-				return WhatsNewView(plistName: "WhatsNewConfiguration")
+				if let path = Bundle.main.path(forResource: "WhatsNewConfiguration", ofType: "plist"),
+				   let whatsNewView = WhatsNewView(configurationPlistPath: path) {
+					return whatsNewView
+				}
 			case .version:
-				return WhatsNewView(plistName: "WhatsNewConfiguration")
+				if let path = Bundle.main.path(forResource: "WhatsNewConfiguration", ofType: "plist"),
+				   let whatsNewView = WhatsNewView(configurationPlistPath: path) {
+					return whatsNewView
+				}
 			}
+
+			return WhatsNewView(configuration: WhatsNewConfiguration())
 		}
 	}
 }

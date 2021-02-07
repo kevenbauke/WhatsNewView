@@ -24,7 +24,7 @@ struct ExampleData {
 	static var configurationOnly: WhatsNewConfiguration {
 		var configuration = WhatsNewConfiguration()
 		configuration.title = "Welcome to"
-		configuration.accentTitle = "WhatsNewView"
+		configuration.accentTitle = Bundle.main.displayName ?? "WhatsNewView"
 		configuration.description = "This view can help you give that extra information your user needs at certain points in your app."
 //		configuration.accentColor = .purple
 
@@ -35,5 +35,12 @@ struct ExampleData {
 		}
 
 		return configuration
+	}
+}
+
+extension Bundle {
+	var displayName: String? {
+		return object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ??
+			object(forInfoDictionaryKey: "CFBundleName") as? String
 	}
 }
