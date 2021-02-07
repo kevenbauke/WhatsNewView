@@ -59,8 +59,8 @@ struct ContentView: View {
 					return whatsNewView
 				}
 			case .version:
-				if let path = Bundle.main.path(forResource: "WhatsNewConfiguration", ofType: "plist"),
-				   let whatsNewView = WhatsNewView(configurationPlistPath: path) {
+				if let path = Bundle.main.path(forResource: "WhatsNewVersion", ofType: "plist"),
+				   let whatsNewView = WhatsNewView(versionPlistPath: path) {
 					return whatsNewView
 				}
 			}
