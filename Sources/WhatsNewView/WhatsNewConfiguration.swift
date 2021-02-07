@@ -50,7 +50,7 @@ public struct WhatsNewConfiguration {
 		}
 	}
 
-	init(versionDictionary: Dictionary<String, Any>) {
+	init?(versionDictionary: Dictionary<String, Any>) {
 		let versionRepo = WhatsNewVersionRepository()
 
 		if versionRepo.isInitialStart {
@@ -81,6 +81,6 @@ public struct WhatsNewConfiguration {
 			}
 		}
 
-		self.init()
+		return nil
 	}
 }

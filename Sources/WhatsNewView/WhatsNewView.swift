@@ -90,7 +90,11 @@ public struct WhatsNewView: View {
 
 	public init?(versionPlistPath: String) {
 		if let versionDictionary = NSDictionary(contentsOfFile: versionPlistPath) as? Dictionary<String, Any> {
-			configuration = WhatsNewConfiguration(versionDictionary: versionDictionary)
+			if let configuration = WhatsNewConfiguration(versionDictionary: versionDictionary) {
+				self.configuration = configuration
+			} else {
+				return nil
+			}
 		} else {
 			return nil
 		}
