@@ -3,7 +3,7 @@ import WhatsNewView
 
 struct ContentView: View {
 	private enum SheetType: Identifiable {
-		case configuration, plist, version
+		case configuration, plist, version, intro, tvApp
 
 		var id: Int {
 			hashValue
@@ -41,12 +41,20 @@ struct ContentView: View {
 					.bold()
 			}
 			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .green))
+
+			Button(action: {
+				activeSheet = .intro
+			}) {
+				Text("Intro")
+					.bold()
+			}
+			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .green))
 		}
 		.padding(.vertical)
 		.sheet(item: $activeSheet) { item -> WhatsNewView? in
 			switch item {
 			case .configuration:
-				return WhatsNewView(configuration: ExampleData.configurationOnly)
+				return WhatsNewView(configuration: DefaultExampleData.configuration)
 			case .plist:
 				if let path = Bundle.main.path(forResource: "WhatsNewConfiguration", ofType: "plist"),
 				   let whatsNewView = WhatsNewView(configurationPlistPath: path) {
@@ -57,6 +65,10 @@ struct ContentView: View {
 				   let whatsNewView = WhatsNewView(versionPlistPath: path) {
 					return whatsNewView
 				}
+			case .intro:
+				return WhatsNewView(configuration: IntroExampleData.configuration)
+			case .tvApp:
+				return WhatsNewView(configuration: TVAppExampleData.configuration)
 			}
 
 			return nil
