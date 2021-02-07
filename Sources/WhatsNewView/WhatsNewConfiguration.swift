@@ -30,7 +30,7 @@ public struct WhatsNewConfiguration {
 		for featureDictionary in featuresDictionaries {
 			var feature = WhatsNewFeature()
 			feature.title = featureDictionary["Title"] as? String
-			feature.title = featureDictionary["Description"] as? String
+			feature.description = featureDictionary["Description"] as? String
 
 			if let systemImageName = featureDictionary["SystemImage"] as? String, !systemImageName.isEmpty {
 				feature.image = Image(systemName: systemImageName)
