@@ -33,6 +33,9 @@ struct ExampleData {
 		configuration.buttonAction = {
 			print("Button tapped.")
 		}
+		configuration.dismissAction = {
+			print("View was dismissed.")
+		}
 
 		return configuration
 	}

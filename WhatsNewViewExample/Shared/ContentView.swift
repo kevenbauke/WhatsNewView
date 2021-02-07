@@ -59,8 +59,6 @@ struct ContentView: View {
 					return whatsNewView
 				}
 			case .version:
-//				WhatsNewView.resetVersion()
-
 				if let path = Bundle.main.path(forResource: "WhatsNewVersion", ofType: "plist"),
 				   let whatsNewView = WhatsNewView(versionPlistPath: path) {
 					return whatsNewView
@@ -68,6 +66,9 @@ struct ContentView: View {
 			}
 
 			return nil
+		}
+		.onAppear {
+			WhatsNewView.resetVersion()
 		}
 	}
 }

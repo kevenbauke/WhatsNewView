@@ -54,16 +54,14 @@ public struct WhatsNewConfiguration {
 	init?(versionDictionary: Dictionary<String, Any>) {
 		let versionRepo = WhatsNewVersionRepository()
 
-		if versionRepo.isInitialStart {
-			if let welcomeDictionary = versionDictionary["Welcome"] as? Dictionary<String, Any> {
-				self.init(dictionary: welcomeDictionary)
+		if versionRepo.isInitialStart, let welcomeDictionary = versionDictionary["Welcome"] as? Dictionary<String, Any> {
+			self.init(dictionary: welcomeDictionary)
 
-				if let hexString = versionDictionary["AccentColor"] as? String {
-					accentColor = Color(UIColor(hexString: hexString))
-				}
-
-				return
+			if let hexString = versionDictionary["AccentColor"] as? String {
+				accentColor = Color(UIColor(hexString: hexString))
 			}
+
+			return
 		} else if versionRepo.isNewVersion {
 			if let versionsDictionary = versionDictionary["Versions"] as? Dictionary<String, Any>,
 			   let currentVersionDictionary = versionsDictionary[versionRepo.version] as? Dictionary<String, Any> {
