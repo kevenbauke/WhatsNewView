@@ -13,7 +13,7 @@ struct WhatsNewVersionRepository {
 	}
 
 	var isInitialStart: Bool {
-		UserDefaults.standard.bool(forKey: wasShownKey)
+		!UserDefaults.standard.bool(forKey: wasShownKey)
 	}
 
 	var isNewVersion: Bool {
