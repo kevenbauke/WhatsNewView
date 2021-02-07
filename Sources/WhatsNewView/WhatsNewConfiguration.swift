@@ -28,9 +28,9 @@ public struct WhatsNewConfiguration {
 		let featuresDictionaries: [Dictionary] = dictionary["Features"] as? Array<Dictionary<String, String?>> ?? []
 		features = [WhatsNewFeature]()
 		for featureDictionary in featuresDictionaries {
-			let description = featureDictionary["Description"] as? String
-			var feature = WhatsNewFeature(description: description ?? "No description found.")
+			var feature = WhatsNewFeature()
 			feature.title = featureDictionary["Title"] as? String
+			feature.title = featureDictionary["Description"] as? String
 
 			if let systemImageName = featureDictionary["SystemImage"] as? String, !systemImageName.isEmpty {
 				feature.image = Image(systemName: systemImageName)

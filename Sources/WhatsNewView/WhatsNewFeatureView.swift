@@ -23,8 +23,11 @@ struct WhatsNewFeatureView: View {
 						.font(.headline)
 						.leftAligned()
 				}
-				Text(feature.description)
-					.leftAligned()
+
+				if let description = feature.description {
+					Text(description)
+						.leftAligned()
+				}
 			}
 		}
 		.padding(.vertical)
