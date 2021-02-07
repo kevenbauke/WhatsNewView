@@ -42,6 +42,7 @@ struct ContentView: View {
 			}
 			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .green))
 		}
+		.padding(.vertical)
 		.sheet(item: $activeSheet) { item -> WhatsNewView? in
 			switch item {
 			case .configuration:
