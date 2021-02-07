@@ -48,7 +48,15 @@ struct ContentView: View {
 				Text("Intro")
 					.bold()
 			}
-			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .green))
+			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .blue))
+
+			Button(action: {
+				activeSheet = .tvApp
+			}) {
+				Text("TVApp")
+					.bold()
+			}
+			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .blue))
 		}
 		.padding(.vertical)
 		.sheet(item: $activeSheet) { item -> WhatsNewView? in
