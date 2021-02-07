@@ -5,13 +5,13 @@
 	<key>AccentColor</key>
 	<string>#0A84FF</string>
 	<key>DefaultTitle</key>
-	<string>Whats new in this</string>
+	<string></string>
 	<key>DefaultAccentTitle</key>
-	<string>Version</string>
+	<string></string>
 	<key>DefaultDescription</key>
-	<string>Thanks to your valuable feedback we implemented these new features.</string>
+	<string></string>
 	<key>DefaultButtonTitle</key>
-	<string>OK</string>
+	<string></string>
 	<key>Welcome</key>
 	<dict>
 		<key>Title</key>

@@ -363,6 +363,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevenbauke.WhatsNewViewExample;
 				PRODUCT_NAME = WhatsNewViewExample;
 				SDKROOT = iphoneos;
@@ -385,6 +386,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevenbauke.WhatsNewViewExample;
 				PRODUCT_NAME = WhatsNewViewExample;
 				SDKROOT = iphoneos;

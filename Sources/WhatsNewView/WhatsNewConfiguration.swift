@@ -68,10 +68,25 @@ public struct WhatsNewConfiguration {
 			   let currentVersionDictionary = versionsDictionary[versionRepo.version] as? Dictionary<String, Any> {
 				self.init(dictionary: currentVersionDictionary)
 
-				title = versionDictionary["DefaultTitle"] as? String
-				accentTitle = versionDictionary["DefaultAccentTitle"] as? String
-				description = versionDictionary["DefaultDescription"] as? String
-				buttonTitle = versionDictionary["DefaultButtonTitle"] as? String
+				if let defaultTitle = versionDictionary["DefaultTitle"] as? String,
+				   !defaultTitle.isEmpty {
+					title = defaultTitle
+				}
+
+				if let defaultAccentTitle = versionDictionary["DefaultAccentTitle"] as? String,
+				   !defaultAccentTitle.isEmpty {
+					accentTitle = defaultAccentTitle
+				}
+
+				if let defaultDescription = versionDictionary["DefaultDescription"] as? String,
+				   !defaultDescription.isEmpty {
+					description = defaultDescription
+				}
+
+				if let defaultButtonTitle = versionDictionary["DefaultButtonTitle"] as? String,
+				   !defaultButtonTitle.isEmpty {
+					buttonTitle = defaultButtonTitle
+				}
 
 				if let hexString = versionDictionary["AccentColor"] as? String {
 					accentColor = Color(UIColor(hexString: hexString))
