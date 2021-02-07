@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		24085BFB25CF5ABD00C6E0FF /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24085BFA25CF5ABD00C6E0FF /* ExampleData.swift */; };
 		24085BFC25CF5ABD00C6E0FF /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24085BFA25CF5ABD00C6E0FF /* ExampleData.swift */; };
-		24085C0125CF5BEE00C6E0FF /* Content.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24085C0025CF5BEE00C6E0FF /* Content.plist */; };
-		24085C0225CF5BEE00C6E0FF /* Content.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24085C0025CF5BEE00C6E0FF /* Content.plist */; };
+		24085C0125CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24085C0025CF5BEE00C6E0FF /* WhatsNewConfiguration.plist */; };
+		24085C0225CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24085C0025CF5BEE00C6E0FF /* WhatsNewConfiguration.plist */; };
 		24B0B2F325CED5E6001775F4 /* WhatsNewViewExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B0B2E025CED5E5001775F4 /* WhatsNewViewExampleApp.swift */; };
 		24B0B2F425CED5E6001775F4 /* WhatsNewViewExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B0B2E025CED5E5001775F4 /* WhatsNewViewExampleApp.swift */; };
 		24B0B2F525CED5E6001775F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B0B2E125CED5E5001775F4 /* ContentView.swift */; };
@@ -22,7 +22,8 @@
 
 /* Begin PBXFileReference section */
 		24085BFA25CF5ABD00C6E0FF /* ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleData.swift; sourceTree = "<group>"; };
-		24085C0025CF5BEE00C6E0FF /* Content.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Content.plist; sourceTree = "<group>"; };
+		24085C0025CF5BEE00C6E0FF /* WhatsNewConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WhatsNewConfiguration.plist; sourceTree = "<group>"; };
+		243D554425D01B28004C801E /* WhatsNewVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WhatsNewVersion.plist; sourceTree = "<group>"; };
 		24B0B2E025CED5E5001775F4 /* WhatsNewViewExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewExampleApp.swift; sourceTree = "<group>"; };
 		24B0B2E125CED5E5001775F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		24B0B2E225CED5E6001775F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -56,7 +57,8 @@
 			isa = PBXGroup;
 			children = (
 				24B0B2E225CED5E6001775F4 /* Assets.xcassets */,
-				24085C0025CF5BEE00C6E0FF /* Content.plist */,
+				243D554425D01B28004C801E /* WhatsNewVersion.plist */,
+				24085C0025CF5BEE00C6E0FF /* WhatsNewConfiguration.plist */,
 			);
 			path = Ressources;
 			sourceTree = "<group>";
@@ -192,7 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24085C0125CF5BEE00C6E0FF /* Content.plist in Resources */,
+				24085C0125CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */,
 				24B0B2F725CED5E6001775F4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,7 +203,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24085C0225CF5BEE00C6E0FF /* Content.plist in Resources */,
+				24085C0225CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */,
 				24B0B2F825CED5E6001775F4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

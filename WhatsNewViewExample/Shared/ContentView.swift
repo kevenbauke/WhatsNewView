@@ -54,9 +54,9 @@ struct ContentView: View {
 			case .configuration:
 				return WhatsNewView(configuration: ExampleData.configurationOnly)
 			case .plist:
-				return WhatsNewView(plistName: "Content")
+				return WhatsNewView(plistName: "WhatsNewConfiguration")
 			case .version:
-				return WhatsNewView(plistName: "Content")
+				return WhatsNewView(plistName: "WhatsNewConfiguration")
 			}
 		}
 	}

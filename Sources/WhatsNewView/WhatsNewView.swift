@@ -79,10 +79,20 @@ public struct WhatsNewView: View {
 		self.configuration = configuration
 	}
 
-	public init(plistName: String) {
-		if let path = Bundle.main.path(forResource: plistName, ofType: "plist") {
-			self.configuration = WhatsNewConfiguration(dictionary: NSDictionary(contentsOfFile: path) as! Dictionary<String, Any>)
-		 }
+	public init?(configurationPlistPath: String) {
+		if let configurationDictionary = NSDictionary(contentsOfFile: configurationPlistPath) as? Dictionary<String, Any> {
+			configuration = WhatsNewConfiguration(dictionary: configurationDictionary)
+		} else {
+			return nil
+		}
+	}
+
+	public init?(versionPlistPath: String) {
+		if let versionDictionary = NSDictionary(contentsOfFile: versionPlistPath) as? Dictionary<String, Any> {
+			configuration = WhatsNewConfiguration(dictionary: versionDictionary)
+		} else {
+			return nil
+		}
 	}
 }
 
