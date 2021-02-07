@@ -72,7 +72,7 @@ public struct WhatsNewView: View {
 			}
 		}
 		.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: configuration?.accentColor ?? Color.accentColor))
-		.padding(.vertical)
+		.padding(EdgeInsets(top: margin/2, leading: margin, bottom: margin/2, trailing: margin))
 		.onDisappear {
 			if let dismissAction = configuration?.dismissAction {
 				dismissAction()
@@ -127,7 +127,6 @@ private struct RoundedRectangleButtonStyle: ButtonStyle {
 		.background(backgroundColor)
 		.cornerRadius(10)
 	}
-	.padding(.horizontal)
 	.scaleEffect(configuration.isPressed ? 0.97 : 1)
 	.animation(.easeOut)
   }
