@@ -30,7 +30,7 @@ public struct WhatsNewConfiguration {
 
 			if let imageName = featureDictionary["Image"] as? String {
 				feature.image = Image(systemName: imageName)
-				feature.imageColor = Color("Red")
+				feature.imageColor = Color("red")
 			}
 
 			features?.append(feature)
