@@ -1,6 +1,7 @@
 import SwiftUI
+import UIKit
 
-@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+@available(macOS 11, iOS 13, watchOS 6, tvOS 13, *)
 struct LeftAligned: ViewModifier {
 	func body(content: Content) -> some View {
 		HStack {
@@ -10,7 +11,7 @@ struct LeftAligned: ViewModifier {
 	}
 }
 
-@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+@available(macOS 11, iOS 13, watchOS 6, tvOS 13, *)
 extension View {
 	func leftAligned() -> some View {
 		return self.modifier(LeftAligned())
