@@ -9,7 +9,15 @@ import SwiftUI
 import WhatsNewView
 
 struct ContentView: View {
-	@State private var showWhatsNewScreen = false
+	private enum SheetType: Identifiable {
+		case configuration, plist, version
+
+		var id: Int {
+			hashValue
+		}
+	}
+
+	@State private var activeSheet: SheetType?
 
 	var body: some View {
 		Text("WhatsNewView Example")
@@ -18,37 +26,38 @@ struct ContentView: View {
 
 		VStack(spacing: 8) {
 			Button(action: {
-				showWhatsNewScreen.toggle()
+				activeSheet = .configuration
 			}) {
 				Text("Configuration (Code only)")
 					.bold()
 			}
 			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .red))
-//			.sheet(isPresented: $showWhatsNewScreen) {
-//				WhatsNewView(configuration: ExampleData.configurationOnly)
-//			}
 
 			Button(action: {
-				showWhatsNewScreen.toggle()
+				activeSheet = .plist
 			}) {
-				Text("Plist + Configuration")
+				Text("Plist")
 					.bold()
 			}
 			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .orange))
-			.sheet(isPresented: $showWhatsNewScreen) {
-				WhatsNewView(plistName: "Content")
-			}
 
 			Button(action: {
-				showWhatsNewScreen.toggle()
+				activeSheet = .version
 			}) {
 				Text("Version Plist")
 					.bold()
 			}
 			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .green))
-//			.sheet(isPresented: $showWhatsNewScreen) {
-//				WhatsNewView(configuration: ExampleData.configurationOnly)
-//			}
+		}
+		.sheet(item: $activeSheet) { item -> WhatsNewView in
+			switch item {
+			case .configuration:
+				return WhatsNewView(configuration: ExampleData.configurationOnly)
+			case .plist:
+				return WhatsNewView(plistName: "Content")
+			case .version:
+				return WhatsNewView(plistName: "Content")
+			}
 		}
 	}
 }
@@ -69,10 +78,4 @@ private struct RoundedRectangleButtonStyle: ButtonStyle {
 	.scaleEffect(configuration.isPressed ? 0.97 : 1)
 	.animation(.easeOut)
   }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-		ContentView()
-    }
 }

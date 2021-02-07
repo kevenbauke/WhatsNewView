@@ -15,11 +15,11 @@ public struct WhatsNewView: View {
 		VStack(spacing: 8) {
 			Group {
 				if let title = configuration?.title {
-					if let accentedTitle = configuration?.accentedTitle {
+					if let accentTitle = configuration?.accentTitle {
 						Text(title)
 							.bold()
 						+
-						Text(" " + accentedTitle)
+						Text(" " + accentTitle)
 							.bold()
 							.foregroundColor(configuration?.accentColor ?? .accentColor)
 					} else {
@@ -27,12 +27,11 @@ public struct WhatsNewView: View {
 							.bold()
 					}
 				} else {
-					Text("Welcome to ")
-						.bold()
-						+
-					Text(Bundle.main.displayName ?? "")
-						.bold()
-						.foregroundColor(configuration?.accentColor ?? .accentColor)
+					if let accentTitle = configuration?.accentTitle {
+						Text(accentTitle)
+							.bold()
+							.foregroundColor(configuration?.accentColor ?? .accentColor)
+					}
 				}
 			}
 			.fixedSize(horizontal: false, vertical: true)

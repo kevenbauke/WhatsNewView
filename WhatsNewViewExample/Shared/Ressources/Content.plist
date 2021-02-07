@@ -4,7 +4,7 @@
 <dict>
 	<key>Title</key>
 	<string>Hello</string>
-	<key>AccentedTitle</key>
+	<key>AccentTitle</key>
 	<string>World</string>
 	<key>Description</key>
 	<string>This view can help you give that extra information your user needs at certain points in your app.</string>
@@ -15,8 +15,10 @@
 	<key>Features</key>
 	<array>
 		<dict>
-			<key>Image</key>
+			<key>SystemImage</key>
 			<string>figure.wave</string>
+			<key>Image</key>
+			<string></string>
 			<key>ImageColor</key>
 			<string>#FF453A</string>
 			<key>Title</key>
@@ -25,8 +27,10 @@
 			<string>Welcome your users and introduce important functionality.</string>
 		</dict>
 		<dict>
-			<key>Image</key>
+			<key>SystemImage</key>
 			<string>megaphone.fill</string>
+			<key>Image</key>
+			<string></string>
 			<key>ImageColor</key>
 			<string>#FF9F0A</string>
 			<key>Title</key>
@@ -35,8 +39,10 @@
 			<string>Introduce your users to great new features in new versions.</string>
 		</dict>
 		<dict>
+			<key>SystemImage</key>
+			<string></string>
 			<key>Image</key>
-			<string>text.book.closed.fill</string>
+			<string>TextBookClosedFill</string>
 			<key>ImageColor</key>
 			<string>#30D158</string>
 			<key>Title</key>

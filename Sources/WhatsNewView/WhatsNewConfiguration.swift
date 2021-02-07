@@ -4,7 +4,7 @@ import SwiftUI
 @available(iOS 13.0, *)
 public struct WhatsNewConfiguration {
 	public var title: String?
-	public var accentedTitle: String?
+	public var accentTitle: String?
 	public var description: String?
 	public var accentColor = Color.accentColor
 
@@ -17,7 +17,7 @@ public struct WhatsNewConfiguration {
 
 	init(dictionary: Dictionary<String, Any>) {
 		title = dictionary["Title"] as? String
-		accentedTitle = dictionary["AccentedTitle"] as? String
+		accentTitle = dictionary["AccentTitle"] as? String
 		description = dictionary["Description"] as? String
 		buttonTitle = dictionary["ButtonTitle"] as? String
 
@@ -32,8 +32,14 @@ public struct WhatsNewConfiguration {
 			var feature = WhatsNewFeature(description: description ?? "No description found.")
 			feature.title = featureDictionary["Title"] as? String
 
-			if let imageName = featureDictionary["Image"] as? String {
-				feature.image = Image(systemName: imageName)
+			if let systemImageName = featureDictionary["SystemImage"] as? String {
+				feature.image = Image(systemName: systemImageName)
+
+				if let hexString = featureDictionary["ImageColor"] as? String {
+					feature.imageColor = Color(UIColor(hexString: hexString))
+				}
+			} else if let imageName = featureDictionary["Image"] as? String {
+				feature.image = Image(imageName)
 
 				if let hexString = featureDictionary["ImageColor"] as? String {
 					feature.imageColor = Color(UIColor(hexString: hexString))
