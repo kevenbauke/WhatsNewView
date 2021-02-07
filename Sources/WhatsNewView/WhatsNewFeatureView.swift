@@ -1,6 +1,6 @@
 import SwiftUI
 
-@available(iOS 13.0, *)
+@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
 struct WhatsNewFeatureView: View {
 	private let feature: WhatsNewFeature
 

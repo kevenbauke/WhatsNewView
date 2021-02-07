@@ -11,8 +11,7 @@
 		24085BFC25CF5ABD00C6E0FF /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24085BFA25CF5ABD00C6E0FF /* ExampleData.swift */; };
 		24085C0125CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24085C0025CF5BEE00C6E0FF /* WhatsNewConfiguration.plist */; };
 		24085C0225CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24085C0025CF5BEE00C6E0FF /* WhatsNewConfiguration.plist */; };
-		243D554725D03648004C801E /* WhatsNewVersion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 243D554425D01B28004C801E /* WhatsNewVersion.plist */; };
-		243D554A25D03649004C801E /* WhatsNewVersion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 243D554425D01B28004C801E /* WhatsNewVersion.plist */; };
+		243D556E25D048AA004C801E /* WhatsNewView in Frameworks */ = {isa = PBXBuildFile; productRef = 243D556D25D048AA004C801E /* WhatsNewView */; };
 		24B0B2F325CED5E6001775F4 /* WhatsNewViewExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B0B2E025CED5E5001775F4 /* WhatsNewViewExampleApp.swift */; };
 		24B0B2F425CED5E6001775F4 /* WhatsNewViewExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B0B2E025CED5E5001775F4 /* WhatsNewViewExampleApp.swift */; };
 		24B0B2F525CED5E6001775F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B0B2E125CED5E5001775F4 /* ContentView.swift */; };
@@ -25,7 +24,7 @@
 /* Begin PBXFileReference section */
 		24085BFA25CF5ABD00C6E0FF /* ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleData.swift; sourceTree = "<group>"; };
 		24085C0025CF5BEE00C6E0FF /* WhatsNewConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WhatsNewConfiguration.plist; sourceTree = "<group>"; };
-		243D554425D01B28004C801E /* WhatsNewVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WhatsNewVersion.plist; sourceTree = "<group>"; };
+		243D555F25D04333004C801E /* WhatsNewVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WhatsNewVersion.plist; sourceTree = "<group>"; };
 		24B0B2E025CED5E5001775F4 /* WhatsNewViewExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewExampleApp.swift; sourceTree = "<group>"; };
 		24B0B2E125CED5E5001775F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		24B0B2E225CED5E6001775F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				243D556E25D048AA004C801E /* WhatsNewView in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,10 +59,17 @@
 			isa = PBXGroup;
 			children = (
 				24B0B2E225CED5E6001775F4 /* Assets.xcassets */,
-				243D554425D01B28004C801E /* WhatsNewVersion.plist */,
+				243D555F25D04333004C801E /* WhatsNewVersion.plist */,
 				24085C0025CF5BEE00C6E0FF /* WhatsNewConfiguration.plist */,
 			);
 			path = Ressources;
+			sourceTree = "<group>";
+		};
+		243D556C25D048AA004C801E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		24B0B2DA25CED5E5001775F4 = {
@@ -72,6 +79,7 @@
 				24B0B2E925CED5E6001775F4 /* iOS */,
 				24B0B2F025CED5E6001775F4 /* macOS */,
 				24B0B2E825CED5E6001775F4 /* Products */,
+				243D556C25D048AA004C801E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -148,6 +156,9 @@
 			dependencies = (
 			);
 			name = "WhatsNewViewExample (macOS)";
+			packageProductDependencies = (
+				243D556D25D048AA004C801E /* WhatsNewView */,
+			);
 			productName = "WhatsNewViewExample (macOS)";
 			productReference = 24B0B2EF25CED5E6001775F4 /* WhatsNewViewExample.app */;
 			productType = "com.apple.product-type.application";
@@ -196,7 +207,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				243D554725D03648004C801E /* WhatsNewVersion.plist in Resources */,
 				24085C0125CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */,
 				24B0B2F725CED5E6001775F4 /* Assets.xcassets in Resources */,
 			);
@@ -206,7 +216,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				243D554A25D03649004C801E /* WhatsNewVersion.plist in Resources */,
 				24085C0225CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */,
 				24B0B2F825CED5E6001775F4 /* Assets.xcassets in Resources */,
 			);
@@ -488,6 +497,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		243D556D25D048AA004C801E /* WhatsNewView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 24B0B30825CED84D001775F4 /* XCRemoteSwiftPackageReference "WhatsNewView" */;
+			productName = WhatsNewView;
+		};
 		24B0B30925CED84D001775F4 /* WhatsNewView */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 24B0B30825CED84D001775F4 /* XCRemoteSwiftPackageReference "WhatsNewView" */;

@@ -24,7 +24,7 @@ struct ExampleData {
 	static var configurationOnly: WhatsNewConfiguration {
 		var configuration = WhatsNewConfiguration()
 		configuration.title = "Welcome to"
-		configuration.accentTitle = Bundle.main.displayName ?? "WhatsNewView"
+		configuration.accentTitle = "WhatsNewView"
 		configuration.description = "This view can help you give that extra information your user needs at certain points in your app."
 //		configuration.accentColor = .purple
 

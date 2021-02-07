@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-@available(iOS 13.0, *)
+@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
 public struct WhatsNewConfiguration {
 	public var title: String?
 	public var accentTitle: String?

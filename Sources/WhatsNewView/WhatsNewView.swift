@@ -3,7 +3,7 @@ import SwiftUI
 let margin: CGFloat = 40
 let listMargin: CGFloat = 25
 
-@available(iOS 13.0.0, *)
+@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
 public struct WhatsNewView: View {
 	private let margin: CGFloat = 40
 	private let listMargin: CGFloat = 25
@@ -114,7 +114,7 @@ public struct WhatsNewView: View {
 	}
 }
 
-@available(iOS 13.0, *)
+@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
 private struct RoundedRectangleButtonStyle: ButtonStyle {
 	var backgroundColor: Color
 
