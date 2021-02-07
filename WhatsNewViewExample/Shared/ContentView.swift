@@ -24,9 +24,9 @@ struct ContentView: View {
 					.bold()
 			}
 			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .red))
-			.sheet(isPresented: $showWhatsNewScreen) {
-				WhatsNewView(configuration: ExampleData.configurationOnly)
-			}
+//			.sheet(isPresented: $showWhatsNewScreen) {
+//				WhatsNewView(configuration: ExampleData.configurationOnly)
+//			}
 
 			Button(action: {
 				showWhatsNewScreen.toggle()
@@ -46,9 +46,9 @@ struct ContentView: View {
 					.bold()
 			}
 			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .green))
-			.sheet(isPresented: $showWhatsNewScreen) {
-				WhatsNewView(configuration: ExampleData.configurationOnly)
-			}
+//			.sheet(isPresented: $showWhatsNewScreen) {
+//				WhatsNewView(configuration: ExampleData.configurationOnly)
+//			}
 		}
 	}
 }

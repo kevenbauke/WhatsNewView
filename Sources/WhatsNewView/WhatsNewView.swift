@@ -42,8 +42,6 @@ public struct WhatsNewView: View {
 			Group {
 				if let description = configuration?.description {
 					Text(description)
-				} else {
-					Text("This view can help you to give that extra information your user needs at certain points in your app.")
 				}
 			}
 			.leftAligned()
@@ -69,7 +67,7 @@ public struct WhatsNewView: View {
 					Text(buttonTitle)
 						.bold()
 				} else {
-					Text("Got it!")
+					Text("OK")
 						.bold()
 				}
 			}
