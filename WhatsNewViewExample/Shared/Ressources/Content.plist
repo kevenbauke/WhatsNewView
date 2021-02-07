@@ -10,11 +10,15 @@
 	<string>This view can help you give that extra information your user needs at certain points in your app.</string>
 	<key>ButtonTitle</key>
 	<string>OK</string>
+	<key>AccentColor</key>
+	<string>#0A84FF</string>
 	<key>Features</key>
 	<array>
 		<dict>
 			<key>Image</key>
 			<string>figure.wave</string>
+			<key>ImageColor</key>
+			<string>#FF453A</string>
 			<key>Title</key>
 			<string>A welcome screen</string>
 			<key>Description</key>
@@ -23,6 +27,8 @@
 		<dict>
 			<key>Image</key>
 			<string>megaphone.fill</string>
+			<key>ImageColor</key>
+			<string>#FF9F0A</string>
 			<key>Title</key>
 			<string>A new version screen</string>
 			<key>Description</key>
@@ -31,6 +37,8 @@
 		<dict>
 			<key>Image</key>
 			<string>text.book.closed.fill</string>
+			<key>ImageColor</key>
+			<string>#30D158</string>
 			<key>Title</key>
 			<string>A simple how to screen</string>
 			<key>Description</key>

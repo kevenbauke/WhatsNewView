@@ -21,6 +21,10 @@ public struct WhatsNewConfiguration {
 		description = dictionary["Description"] as? String
 		buttonTitle = dictionary["ButtonTitle"] as? String
 
+		if let hexString = dictionary["AccentColor"] as? String {
+			accentColor = Color(UIColor(hexString: hexString))
+		}
+
 		let featuresDictionaries: [Dictionary] = dictionary["Features"] as? Array<Dictionary<String, String?>> ?? []
 		features = [WhatsNewFeature]()
 		for featureDictionary in featuresDictionaries {
@@ -30,7 +34,10 @@ public struct WhatsNewConfiguration {
 
 			if let imageName = featureDictionary["Image"] as? String {
 				feature.image = Image(systemName: imageName)
-				feature.imageColor = Color("red")
+
+				if let hexString = featureDictionary["ImageColor"] as? String {
+					feature.imageColor = Color(UIColor(hexString: hexString))
+				}
 			}
 
 			features?.append(feature)
