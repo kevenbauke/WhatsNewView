@@ -32,13 +32,13 @@ public struct WhatsNewConfiguration {
 			var feature = WhatsNewFeature(description: description ?? "No description found.")
 			feature.title = featureDictionary["Title"] as? String
 
-			if let systemImageName = featureDictionary["SystemImage"] as? String {
+			if let systemImageName = featureDictionary["SystemImage"] as? String, !systemImageName.isEmpty {
 				feature.image = Image(systemName: systemImageName)
 
 				if let hexString = featureDictionary["ImageColor"] as? String {
 					feature.imageColor = Color(UIColor(hexString: hexString))
 				}
-			} else if let imageName = featureDictionary["Image"] as? String {
+			} else if let imageName = featureDictionary["Image"] as? String, !imageName.isEmpty {
 				feature.image = Image(imageName)
 
 				if let hexString = featureDictionary["ImageColor"] as? String {
