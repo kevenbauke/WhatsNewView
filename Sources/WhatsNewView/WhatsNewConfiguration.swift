@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-@available(macOS 10.15, iOS 13, watchOS 6, tvOS 13, *)
+@available(macOS 11, iOS 13, watchOS 6, tvOS 13, *)
 public struct WhatsNewConfiguration {
 	public var title: String?
 	public var accentTitle: String?
@@ -23,7 +23,7 @@ public struct WhatsNewConfiguration {
 		buttonTitle = dictionary["ButtonTitle"] as? String
 
 		if let hexString = dictionary["AccentColor"] as? String {
-			accentColor = Color(UIColor(hexString: hexString))
+			accentColor = Color(hexString)
 		}
 
 		let featuresDictionaries: [Dictionary] = dictionary["Features"] as? Array<Dictionary<String, String?>> ?? []
@@ -37,13 +37,13 @@ public struct WhatsNewConfiguration {
 				feature.image = Image(systemName: systemImageName)
 
 				if let hexString = featureDictionary["ImageColor"] as? String {
-					feature.imageColor = Color(UIColor(hexString: hexString))
+					feature.imageColor = Color(hexString)
 				}
 			} else if let imageName = featureDictionary["Image"] as? String, !imageName.isEmpty {
 				feature.image = Image(imageName)
 
 				if let hexString = featureDictionary["ImageColor"] as? String {
-					feature.imageColor = Color(UIColor(hexString: hexString))
+					feature.imageColor = Color(hexString)
 				}
 			}
 
@@ -58,7 +58,7 @@ public struct WhatsNewConfiguration {
 			self.init(dictionary: welcomeDictionary)
 
 			if let hexString = versionDictionary["AccentColor"] as? String {
-				accentColor = Color(UIColor(hexString: hexString))
+				accentColor = Color(hexString)
 			}
 
 			return
@@ -88,7 +88,7 @@ public struct WhatsNewConfiguration {
 				}
 
 				if let hexString = versionDictionary["AccentColor"] as? String {
-					accentColor = Color(UIColor(hexString: hexString))
+					accentColor = Color(hexString)
 				}
 
 				return
