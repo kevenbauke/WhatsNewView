@@ -23,7 +23,7 @@ public struct WhatsNewConfiguration {
 		buttonTitle = dictionary["ButtonTitle"] as? String
 
 		if let hexString = dictionary["AccentColor"] as? String {
-			accentColor = Color(hexString)
+			accentColor = Color(hex: hexString)
 		}
 
 		let featuresDictionaries: [Dictionary] = dictionary["Features"] as? Array<Dictionary<String, String?>> ?? []
@@ -37,13 +37,13 @@ public struct WhatsNewConfiguration {
 				feature.image = Image(systemName: systemImageName)
 
 				if let hexString = featureDictionary["ImageColor"] as? String {
-					feature.imageColor = Color(hexString)
+					feature.imageColor = Color(hex: hexString)
 				}
 			} else if let imageName = featureDictionary["Image"] as? String, !imageName.isEmpty {
 				feature.image = Image(imageName)
 
 				if let hexString = featureDictionary["ImageColor"] as? String {
-					feature.imageColor = Color(hexString)
+					feature.imageColor = Color(hex: hexString)
 				}
 			}
 
@@ -58,7 +58,7 @@ public struct WhatsNewConfiguration {
 			self.init(dictionary: welcomeDictionary)
 
 			if let hexString = versionDictionary["AccentColor"] as? String {
-				accentColor = Color(hexString)
+				accentColor = Color(hex: hexString)
 			}
 
 			return
@@ -88,7 +88,7 @@ public struct WhatsNewConfiguration {
 				}
 
 				if let hexString = versionDictionary["AccentColor"] as? String {
-					accentColor = Color(hexString)
+					accentColor = Color(hex: hexString)
 				}
 
 				return
