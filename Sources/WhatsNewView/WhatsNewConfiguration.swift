@@ -12,6 +12,7 @@ public struct WhatsNewConfiguration {
 
 	public var buttonTitle: String?
 	public var buttonAction: (() -> ())?
+	public var dismissAction: (() -> ())?
 
 	public init() {}
 

@@ -59,7 +59,6 @@ public struct WhatsNewView: View {
 				action()
 			}
 
-			WhatsNewVersionRepository().setLastKnownVersion()
 			presentationMode.wrappedValue.dismiss()
 		}) {
 			Group {
@@ -74,6 +73,12 @@ public struct WhatsNewView: View {
 		}
 		.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: configuration?.accentColor ?? Color.accentColor))
 		.padding(EdgeInsets(top: margin/2, leading: margin, bottom: margin/2, trailing: margin))
+		.onDisappear {
+			if let dismissAction = configuration?.dismissAction {
+				dismissAction()
+			}
+			WhatsNewVersionRepository().setLastKnownVersion()
+		}
 	}
 
 	public init(configuration: WhatsNewConfiguration) {

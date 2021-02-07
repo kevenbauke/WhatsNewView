@@ -49,7 +49,7 @@ struct ContentView: View {
 			}
 			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .green))
 		}
-		.sheet(item: $activeSheet) { item -> WhatsNewView in
+		.sheet(item: $activeSheet) { item -> WhatsNewView? in
 			switch item {
 			case .configuration:
 				return WhatsNewView(configuration: ExampleData.configurationOnly)
@@ -67,7 +67,7 @@ struct ContentView: View {
 				}
 			}
 
-			return WhatsNewView(configuration: WhatsNewConfiguration())
+			return nil
 		}
 	}
 }
