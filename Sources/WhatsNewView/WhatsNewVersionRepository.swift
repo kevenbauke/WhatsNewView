@@ -26,6 +26,7 @@ struct WhatsNewVersionRepository {
 
 	func setVersion(_ version: String) {
 		UserDefaults.standard.setValue(version, forKey: versionKey)
+		UserDefaults.standard.setValue(true, forKey: wasShownKey)
 	}
 	
 	func setLastKnownVersion() {
@@ -35,5 +36,6 @@ struct WhatsNewVersionRepository {
 
 	func resetVersion() {
 		UserDefaults.standard.setValue(nil, forKey: versionKey)
+		UserDefaults.standard.setValue(false, forKey: wasShownKey)
 	}
 }
