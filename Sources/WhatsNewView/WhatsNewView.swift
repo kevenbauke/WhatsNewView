@@ -95,6 +95,14 @@ public struct WhatsNewView: View {
 			return nil
 		}
 	}
+
+	public static func resetVersion() {
+		WhatsNewVersionRepository().resetVersion()
+	}
+
+	public static func setVersion(_ version: String) {
+		WhatsNewVersionRepository().setVersion(version)
+	}
 }
 
 @available(iOS 13.0, *)

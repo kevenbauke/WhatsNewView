@@ -1,17 +1,11 @@
 import Foundation
 
 struct WhatsNewVersionRepository {
-	private let userDefaultsName = "WhatsNextUserDefaults"
 	private let wasShownKey = "WhatsNextWasShown"
 	private let versionKey = "WhatsNextVersion"
 
-	private var userDefaults: UserDefaults {
-		let userDefaults = UserDefaults(suiteName: userDefaultsName) ?? UserDefaults.standard
-		return userDefaults
-	}
-
 	private var lastKnownVersion: String? {
-		userDefaults.string(forKey: versionKey) ?? "0.0"
+		UserDefaults.standard.string(forKey: versionKey) ?? "0.0"
 	}
 
 	var version: String {
@@ -19,7 +13,7 @@ struct WhatsNewVersionRepository {
 	}
 
 	var isInitialStart: Bool {
-		return userDefaults.bool(forKey: wasShownKey)
+		UserDefaults.standard.bool(forKey: wasShownKey)
 	}
 
 	var isNewVersion: Bool {
@@ -29,9 +23,17 @@ struct WhatsNewVersionRepository {
 			return true
 		}
 	}
+
+	func setVersion(_ version: String) {
+		UserDefaults.standard.setValue(version, forKey: versionKey)
+	}
 	
 	func setLastKnownVersion() {
-		userDefaults.setValue(version, forKey: versionKey)
-		userDefaults.setValue(true, forKey: wasShownKey)
+		UserDefaults.standard.setValue(version, forKey: versionKey)
+		UserDefaults.standard.setValue(true, forKey: wasShownKey)
+	}
+
+	func resetVersion() {
+		UserDefaults.standard.setValue(nil, forKey: versionKey)
 	}
 }

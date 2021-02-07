@@ -11,6 +11,8 @@
 		24085BFC25CF5ABD00C6E0FF /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24085BFA25CF5ABD00C6E0FF /* ExampleData.swift */; };
 		24085C0125CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24085C0025CF5BEE00C6E0FF /* WhatsNewConfiguration.plist */; };
 		24085C0225CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24085C0025CF5BEE00C6E0FF /* WhatsNewConfiguration.plist */; };
+		243D554725D03648004C801E /* WhatsNewVersion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 243D554425D01B28004C801E /* WhatsNewVersion.plist */; };
+		243D554A25D03649004C801E /* WhatsNewVersion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 243D554425D01B28004C801E /* WhatsNewVersion.plist */; };
 		24B0B2F325CED5E6001775F4 /* WhatsNewViewExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B0B2E025CED5E5001775F4 /* WhatsNewViewExampleApp.swift */; };
 		24B0B2F425CED5E6001775F4 /* WhatsNewViewExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B0B2E025CED5E5001775F4 /* WhatsNewViewExampleApp.swift */; };
 		24B0B2F525CED5E6001775F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B0B2E125CED5E5001775F4 /* ContentView.swift */; };
@@ -194,6 +196,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				243D554725D03648004C801E /* WhatsNewVersion.plist in Resources */,
 				24085C0125CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */,
 				24B0B2F725CED5E6001775F4 /* Assets.xcassets in Resources */,
 			);
@@ -203,6 +206,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				243D554A25D03649004C801E /* WhatsNewVersion.plist in Resources */,
 				24085C0225CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */,
 				24B0B2F825CED5E6001775F4 /* Assets.xcassets in Resources */,
 			);
