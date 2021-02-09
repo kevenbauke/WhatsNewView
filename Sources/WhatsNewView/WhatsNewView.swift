@@ -77,7 +77,7 @@ public struct WhatsNewView: View {
 			if let dismissAction = configuration?.dismissAction {
 				dismissAction()
 			}
-			WhatsNewVersionRepository().setLastKnownVersion()
+			WhatsNewVersionRepository.setCurrentVersion()
 		}
 	}
 
@@ -106,11 +106,11 @@ public struct WhatsNewView: View {
 	}
 
 	public static func resetVersion() {
-		WhatsNewVersionRepository().resetVersion()
+		WhatsNewVersionRepository.lastKnownVersion = nil
 	}
 
-	public static func setVersion(_ version: String) {
-		WhatsNewVersionRepository().setVersion(version)
+	public static func setLastKnownVersion(_ version: String) {
+		WhatsNewVersionRepository.lastKnownVersion = version
 	}
 }
 

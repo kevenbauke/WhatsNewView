@@ -5,9 +5,9 @@
 	<key>AccentColor</key>
 	<string>#0A84FF</string>
 	<key>DefaultTitle</key>
-	<string></string>
+	<string>What&apos;s new in</string>
 	<key>DefaultAccentTitle</key>
-	<string></string>
+	<string>Version $(Version)</string>
 	<key>DefaultDescription</key>
 	<string></string>
 	<key>DefaultButtonTitle</key>
@@ -17,7 +17,7 @@
 		<key>Title</key>
 		<string>Welcome to</string>
 		<key>AccentTitle</key>
-		<string>MyApp</string>
+		<string>$(AppName)</string>
 		<key>Description</key>
 		<string>This view can help you give that extra information your user needs at certain points in your app.</string>
 		<key>ButtonTitle</key>
@@ -67,9 +67,9 @@
 		<key>1.1.1</key>
 		<dict>
 			<key>Title</key>
-			<string>Version</string>
+			<string>We released a</string>
 			<key>AccentTitle</key>
-			<string>1.1.1</string>
+			<string>new Version</string>
 			<key>Description</key>
 			<string>Enjoy the following new features!</string>
 			<key>Features</key>
@@ -117,9 +117,9 @@
 		<key>1.1.0</key>
 		<dict>
 			<key>Title</key>
-			<string>Version</string>
+			<string></string>
 			<key>AccentTitle</key>
-			<string>1.1.0</string>
+			<string></string>
 			<key>Description</key>
 			<string>Enjoy the following new features!</string>
 			<key>Features</key>

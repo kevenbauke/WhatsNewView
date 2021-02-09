@@ -3,7 +3,9 @@ import WhatsNewView
 
 struct ContentView: View {
 	private enum SheetType: Identifiable {
-		case configuration, plist, version, intro, tvApp
+		case configuration, plist, version
+		case appleIntro, appleTVApp, appleResearch
+		case textOnly
 
 		var id: Int {
 			hashValue
@@ -42,21 +44,49 @@ struct ContentView: View {
 			}
 			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .green))
 
-			Button(action: {
-				activeSheet = .intro
-			}) {
-				Text("Intro")
-					.bold()
-			}
-			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .blue))
+			Divider()
 
-			Button(action: {
-				activeSheet = .tvApp
-			}) {
-				Text("TVApp")
-					.bold()
+			Group {
+				Text("App Examples")
+
+				Button(action: {
+					activeSheet = .appleIntro
+				}) {
+					Text("Apple Intro")
+						.bold()
+				}
+				.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .black))
+
+				Button(action: {
+					activeSheet = .appleTVApp
+				}) {
+					Text("Apple TVApp")
+						.bold()
+				}
+				.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .black))
+
+				Button(action: {
+					activeSheet = .appleResearch
+				}) {
+					Text("Apple Research")
+						.bold()
+				}
+				.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .black))
 			}
-			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .blue))
+
+			Divider()
+
+			Group {
+				Text("Other Examples")
+
+				Button(action: {
+					activeSheet = .textOnly
+				}) {
+					Text("Text only")
+						.bold()
+				}
+				.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .black))
+			}
 		}
 		.padding(.vertical)
 		.sheet(item: $activeSheet) { item -> WhatsNewView? in
@@ -73,10 +103,14 @@ struct ContentView: View {
 				   let whatsNewView = WhatsNewView(versionPlistPath: path) {
 					return whatsNewView
 				}
-			case .intro:
-				return WhatsNewView(configuration: IntroExampleData.configuration)
-			case .tvApp:
-				return WhatsNewView(configuration: TVAppExampleData.configuration)
+			case .appleIntro:
+				return WhatsNewView(configuration: AppleIntroExampleData.configuration)
+			case .appleTVApp:
+				return WhatsNewView(configuration: AppleTVAppExampleData.configuration)
+			case .appleResearch:
+				return WhatsNewView(configuration: AppleResearchExampleData.configuration)
+			case .textOnly:
+				return WhatsNewView(configuration: TextOnlyExampleData.configuration)
 			}
 
 			return nil

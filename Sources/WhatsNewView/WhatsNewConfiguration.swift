@@ -3,14 +3,31 @@ import SwiftUI
 
 @available(macOS 11, iOS 13, watchOS 6, tvOS 13, *)
 public struct WhatsNewConfiguration {
-	public var title: String?
-	public var accentTitle: String?
-	public var description: String?
+	public var title: String? {
+		didSet {
+			title = title?.replacingKeyWords()
+		}
+	}
+	public var accentTitle: String? {
+		didSet {
+			accentTitle = accentTitle?.replacingKeyWords()
+		}
+	}
+	public var description: String? {
+		didSet {
+			description = description?.replacingKeyWords()
+		}
+	}
 	public var accentColor = Color.accentColor
 
 	public var features: [WhatsNewFeature]?
 
-	public var buttonTitle: String?
+	public var buttonTitle: String? {
+		didSet {
+			buttonTitle = buttonTitle?.replacingKeyWords()
+		}
+	}
+
 	public var buttonAction: (() -> ())?
 	public var dismissAction: (() -> ())?
 
@@ -50,9 +67,7 @@ public struct WhatsNewConfiguration {
 	}
 
 	init?(versionDictionary: Dictionary<String, Any>) {
-		let versionRepo = WhatsNewVersionRepository()
-
-		if versionRepo.isInitialStart, let welcomeDictionary = versionDictionary["Welcome"] as? Dictionary<String, Any> {
+		if WhatsNewVersionRepository.isInitialStart, let welcomeDictionary = versionDictionary["Welcome"] as? Dictionary<String, Any> {
 			self.init(dictionary: welcomeDictionary)
 
 			if let hexString = versionDictionary["AccentColor"] as? String {
@@ -60,9 +75,9 @@ public struct WhatsNewConfiguration {
 			}
 
 			return
-		} else if versionRepo.isNewVersion {
+		} else if WhatsNewVersionRepository.isNewVersion {
 			if let versionsDictionary = versionDictionary["Versions"] as? Dictionary<String, Any>,
-			   let currentVersionDictionary = versionsDictionary[versionRepo.version] as? Dictionary<String, Any> {
+			   let currentVersionDictionary = versionsDictionary[WhatsNewVersionRepository.version] as? Dictionary<String, Any> {
 				self.init(dictionary: currentVersionDictionary)
 
 				if let defaultTitle = versionDictionary["DefaultTitle"] as? String,
@@ -94,5 +109,24 @@ public struct WhatsNewConfiguration {
 		}
 
 		return nil
+	}
+}
+
+private extension String {
+	private struct Constants {
+		static let versionString = "$(Version)"
+		static let appnameString = "$(AppName)"
+	}
+
+	func replacingKeyWords() -> String {
+		replacingOccurrences(of: Constants.versionString, with: WhatsNewVersionRepository.version, options: .caseInsensitive)
+			.replacingOccurrences(of: Constants.appnameString, with: Bundle.main.displayName ?? "CFBundleName could not be read", options: .caseInsensitive)
+	}
+}
+
+private extension Bundle {
+	var displayName: String? {
+		return object(forInfoDictionaryKey: "CFBundleDisplayName") as? String ??
+			object(forInfoDictionaryKey: "CFBundleName") as? String
 	}
 }

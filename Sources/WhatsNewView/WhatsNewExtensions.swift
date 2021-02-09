@@ -17,16 +17,6 @@ extension View {
 	}
 }
 
-extension Bundle {
-	var version: String {
-		return infoDictionary?["CFBundleShortVersionString"] as! String
-	}
-
-	var build: String {
-		return infoDictionary?["CFBundleVersion"] as! String
-	}
-}
-
 @available(macOS 11, iOS 13, watchOS 6, tvOS 13, *)
 extension Color {
 	init(hex: String) {

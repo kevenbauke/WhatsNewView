@@ -1,22 +1,26 @@
 import Foundation
 
 struct WhatsNewVersionRepository {
-	private let wasShownKey = "WhatsNextWasShown"
-	private let versionKey = "WhatsNextVersion"
+	static private let versionKey = "WhatsNextVersion"
 
-	private var lastKnownVersion: String? {
-		UserDefaults.standard.string(forKey: versionKey) ?? "0.0"
+	static var lastKnownVersion: String? {
+		set {
+			UserDefaults.standard.setValue(version, forKey: versionKey)
+		}
+		get {
+			UserDefaults.standard.string(forKey: versionKey) ?? nil
+		}
 	}
 
-	var version: String {
+	static var version: String {
 		Bundle.main.version
 	}
 
-	var isInitialStart: Bool {
-		!UserDefaults.standard.bool(forKey: wasShownKey)
+	static var isInitialStart: Bool {
+		UserDefaults.standard.string(forKey: versionKey) == nil
 	}
 
-	var isNewVersion: Bool {
+	static var isNewVersion: Bool {
 		if let lastKnownVersion = lastKnownVersion {
 			return lastKnownVersion.compare(version) == .orderedAscending
 		} else {
@@ -24,18 +28,17 @@ struct WhatsNewVersionRepository {
 		}
 	}
 
-	func setVersion(_ version: String) {
-		UserDefaults.standard.setValue(version, forKey: versionKey)
-		UserDefaults.standard.setValue(true, forKey: wasShownKey)
+	static func setCurrentVersion() {
+		lastKnownVersion = version
 	}
-	
-	func setLastKnownVersion() {
-		UserDefaults.standard.setValue(version, forKey: versionKey)
-		UserDefaults.standard.setValue(true, forKey: wasShownKey)
+}
+
+private extension Bundle {
+	var version: String {
+		return infoDictionary?["CFBundleShortVersionString"] as! String
 	}
 
-	func resetVersion() {
-		UserDefaults.standard.setValue(nil, forKey: versionKey)
-		UserDefaults.standard.setValue(false, forKey: wasShownKey)
+	var build: String {
+		return infoDictionary?["CFBundleVersion"] as! String
 	}
 }
