@@ -80,22 +80,22 @@ public struct WhatsNewConfiguration {
 			   let currentVersionDictionary = versionsDictionary[WhatsNewVersionRepository.version] as? Dictionary<String, Any> {
 				self.init(dictionary: currentVersionDictionary)
 
-				if let defaultTitle = versionDictionary["DefaultTitle"] as? String,
+				if title.isEmptyOrNil, let defaultTitle = versionDictionary["DefaultTitle"] as? String,
 				   !defaultTitle.isEmpty {
 					title = defaultTitle
 				}
 
-				if let defaultAccentTitle = versionDictionary["DefaultAccentTitle"] as? String,
+				if accentTitle.isEmptyOrNil, let defaultAccentTitle = versionDictionary["DefaultAccentTitle"] as? String,
 				   !defaultAccentTitle.isEmpty {
 					accentTitle = defaultAccentTitle
 				}
 
-				if let defaultDescription = versionDictionary["DefaultDescription"] as? String,
+				if description.isEmptyOrNil, let defaultDescription = versionDictionary["DefaultDescription"] as? String,
 				   !defaultDescription.isEmpty {
 					description = defaultDescription
 				}
 
-				if let defaultButtonTitle = versionDictionary["DefaultButtonTitle"] as? String,
+				if buttonTitle.isEmptyOrNil, let defaultButtonTitle = versionDictionary["DefaultButtonTitle"] as? String,
 				   !defaultButtonTitle.isEmpty {
 					buttonTitle = defaultButtonTitle
 				}
@@ -112,15 +112,21 @@ public struct WhatsNewConfiguration {
 	}
 }
 
+private extension Optional where Wrapped: Collection {
+	var isEmptyOrNil: Bool {
+		return self?.isEmpty ?? true
+	}
+}
+
 private extension String {
-	private struct Constants {
+	private struct KeyWords {
 		static let versionString = "$(Version)"
 		static let appnameString = "$(AppName)"
 	}
 
 	func replacingKeyWords() -> String {
-		replacingOccurrences(of: Constants.versionString, with: WhatsNewVersionRepository.version, options: .caseInsensitive)
-			.replacingOccurrences(of: Constants.appnameString, with: Bundle.main.displayName ?? "CFBundleName could not be read", options: .caseInsensitive)
+		replacingOccurrences(of: KeyWords.versionString, with: WhatsNewVersionRepository.version, options: .caseInsensitive)
+			.replacingOccurrences(of: KeyWords.appnameString, with: Bundle.main.displayName ?? "CFBundleName could not be read", options: .caseInsensitive)
 	}
 }
 
