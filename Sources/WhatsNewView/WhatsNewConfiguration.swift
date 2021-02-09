@@ -85,22 +85,22 @@ public struct WhatsNewConfiguration {
 
 				if title.isEmptyOrNil, let defaultTitle = versionDictionary["DefaultTitle"] as? String,
 				   !defaultTitle.isEmpty {
-					title = defaultTitle
+					title = defaultTitle.replacingKeyWords()
 				}
 
 				if accentTitle.isEmptyOrNil, let defaultAccentTitle = versionDictionary["DefaultAccentTitle"] as? String,
 				   !defaultAccentTitle.isEmpty {
-					accentTitle = defaultAccentTitle
+					accentTitle = defaultAccentTitle.replacingKeyWords()
 				}
 
 				if description.isEmptyOrNil, let defaultDescription = versionDictionary["DefaultDescription"] as? String,
 				   !defaultDescription.isEmpty {
-					description = defaultDescription
+					description = defaultDescription.replacingKeyWords()
 				}
 
 				if buttonTitle.isEmptyOrNil, let defaultButtonTitle = versionDictionary["DefaultButtonTitle"] as? String,
 				   !defaultButtonTitle.isEmpty {
-					buttonTitle = defaultButtonTitle
+					buttonTitle = defaultButtonTitle.replacingKeyWords()
 				}
 
 				if let hexString = versionDictionary["AccentColor"] as? String {
