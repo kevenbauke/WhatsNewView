@@ -5,7 +5,7 @@ struct WhatsNewVersionRepository {
 
 	static var lastKnownVersion: String? {
 		set {
-			UserDefaults.standard.setValue(version, forKey: versionKey)
+			UserDefaults.standard.setValue(newValue, forKey: versionKey)
 		}
 		get {
 			UserDefaults.standard.string(forKey: versionKey) ?? nil
