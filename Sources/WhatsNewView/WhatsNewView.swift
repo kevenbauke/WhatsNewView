@@ -109,7 +109,7 @@ public struct WhatsNewView: View {
 		WhatsNewVersionRepository.lastKnownVersion = nil
 	}
 
-	public static func setLastKnownVersion(_ version: String) {
+	public static func setLastKnownVersion(_ version: String?) {
 		WhatsNewVersionRepository.lastKnownVersion = version
 	}
 }
