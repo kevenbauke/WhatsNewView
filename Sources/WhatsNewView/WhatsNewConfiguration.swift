@@ -8,16 +8,19 @@ public struct WhatsNewConfiguration {
 			title = title?.replacingKeyWords()
 		}
 	}
+
 	public var accentTitle: String? {
 		didSet {
 			accentTitle = accentTitle?.replacingKeyWords()
 		}
 	}
+
 	public var description: String? {
 		didSet {
 			description = description?.replacingKeyWords()
 		}
 	}
+
 	public var accentColor = Color.accentColor
 
 	public var features: [WhatsNewFeature]?
@@ -34,10 +37,10 @@ public struct WhatsNewConfiguration {
 	public init() {}
 
 	init(dictionary: Dictionary<String, Any>) {
-		title = dictionary["Title"] as? String
-		accentTitle = dictionary["AccentTitle"] as? String
-		description = dictionary["Description"] as? String
-		buttonTitle = dictionary["ButtonTitle"] as? String
+		title = (dictionary["Title"] as? String)?.replacingKeyWords()
+		accentTitle = (dictionary["AccentTitle"] as? String)?.replacingKeyWords()
+		description = (dictionary["Description"] as? String)?.replacingKeyWords()
+		buttonTitle = (dictionary["ButtonTitle"] as? String)?.replacingKeyWords()
 
 		if let hexString = dictionary["AccentColor"] as? String, !hexString.isEmpty {
 			accentColor = Color(hex: hexString)
