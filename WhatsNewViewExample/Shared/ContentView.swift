@@ -115,9 +115,6 @@ struct ContentView: View {
 
 			return nil
 		}
-		.onAppear {
-			WhatsNewView.setLastKnownVersion("1.0")
-		}
 	}
 }
 
