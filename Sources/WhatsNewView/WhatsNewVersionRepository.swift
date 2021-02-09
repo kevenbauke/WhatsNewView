@@ -17,7 +17,7 @@ struct WhatsNewVersionRepository {
 	}
 
 	static var isInitialStart: Bool {
-		UserDefaults.standard.string(forKey: versionKey) == nil
+		UserDefaults.standard.string(forKey: versionKey) == nil || UserDefaults.standard.string(forKey: versionKey)?.isEmpty ?? true
 	}
 
 	static var isNewVersion: Bool {
