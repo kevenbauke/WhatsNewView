@@ -26,6 +26,7 @@ struct WhatsNewFeatureView: View {
 
 				if let description = feature.description {
 					Text(description)
+						.foregroundColor(.gray)
 						.leftAligned()
 				}
 			}
