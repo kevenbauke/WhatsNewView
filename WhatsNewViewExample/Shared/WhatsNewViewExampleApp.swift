@@ -1,10 +1,3 @@
-//
-//  WhatsNewViewExampleApp.swift
-//  Shared
-//
-//  Created by Keven Bauke on 06.02.21.
-//
-
 import SwiftUI
 import WhatsNewView
 

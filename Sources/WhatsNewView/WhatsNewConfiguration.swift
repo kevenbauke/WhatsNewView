@@ -70,7 +70,7 @@ public struct WhatsNewConfiguration {
 	}
 
 	init?(versionDictionary: Dictionary<String, Any>) {
-		if WhatsNewVersionRepository.isInitialStart, let welcomeDictionary = versionDictionary["Welcome"] as? Dictionary<String, Any> {
+		if WhatsNewVersionRepository.isInitialStart, let welcomeDictionary = versionDictionary["Welcome"] as? Dictionary<String, Any>, !welcomeDictionary.isEmpty {
 			self.init(dictionary: welcomeDictionary)
 
 			if let hexString = versionDictionary["AccentColor"] as? String {
