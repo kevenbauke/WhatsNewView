@@ -44,3 +44,9 @@ extension Color {
 		)
 	}
 }
+
+extension Optional where Wrapped: Collection {
+	var isEmptyOrNil: Bool {
+		return self?.isEmpty ?? true
+	}
+}

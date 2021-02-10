@@ -6,9 +6,10 @@ let listMargin: CGFloat = 25
 @available(macOS 11, iOS 13, watchOS 6, tvOS 13, *)
 public struct WhatsNewView: View, Identifiable {
 	public let id = UUID()
+	public var configuration: WhatsNewConfiguration?
+	
 	private let margin: CGFloat = 40
 	private let listMargin: CGFloat = 25
-	public var configuration: WhatsNewConfiguration?
 
 	@Environment(\.presentationMode) private var presentationMode
 

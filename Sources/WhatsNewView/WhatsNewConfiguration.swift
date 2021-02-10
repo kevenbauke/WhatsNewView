@@ -115,12 +115,6 @@ public struct WhatsNewConfiguration {
 	}
 }
 
-private extension Optional where Wrapped: Collection {
-	var isEmptyOrNil: Bool {
-		return self?.isEmpty ?? true
-	}
-}
-
 private extension String {
 	private struct KeyWords {
 		static let versionString = "$(Version)"

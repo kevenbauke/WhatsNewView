@@ -17,14 +17,15 @@ struct WhatsNewVersionRepository {
 	}
 
 	static var isInitialStart: Bool {
-		UserDefaults.standard.string(forKey: versionKey) == nil || UserDefaults.standard.string(forKey: versionKey)?.isEmpty ?? true
+		UserDefaults.standard.string(forKey: versionKey).isEmptyOrNil
 	}
 
 	static var isNewVersion: Bool {
-		if let lastKnownVersion = lastKnownVersion {
-			return lastKnownVersion.compare(version) == .orderedAscending
-		} else {
+		switch lastKnownVersion?.compare(version) {
+		case .orderedAscending:
 			return true
+		default:
+			return false
 		}
 	}
 
@@ -35,10 +36,10 @@ struct WhatsNewVersionRepository {
 
 private extension Bundle {
 	var version: String {
-		return infoDictionary?["CFBundleShortVersionString"] as! String
+		infoDictionary?["CFBundleShortVersionString"] as! String
 	}
 
 	var build: String {
-		return infoDictionary?["CFBundleVersion"] as! String
+		infoDictionary?["CFBundleVersion"] as! String
 	}
 }

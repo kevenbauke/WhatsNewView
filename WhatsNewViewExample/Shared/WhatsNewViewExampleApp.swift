@@ -15,10 +15,9 @@ struct WhatsNewViewExampleApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-				.sheet(item: $whatsNewView) { item -> WhatsNewView? in
-					whatsNewView
-				}
+				.sheet(item: $whatsNewView) { $0 }
 				.onAppear {
+					WhatsNewView.resetVersion()
 					if let path = Bundle.main.path(forResource: "WhatsNewVersion", ofType: "plist") {
 					   whatsNewView = WhatsNewView(versionPlistPath: path)
 					}
