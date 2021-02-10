@@ -21,11 +21,10 @@ struct WhatsNewVersionRepository {
 	}
 
 	static var isNewVersion: Bool {
-		switch lastKnownVersion?.compare(version) {
-		case .orderedAscending:
+		if let lastKnownVersion = lastKnownVersion {
+			return lastKnownVersion.compare(version) == .orderedAscending
+		} else {
 			return true
-		default:
-			return false
 		}
 	}
 
