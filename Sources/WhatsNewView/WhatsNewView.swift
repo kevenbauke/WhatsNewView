@@ -67,9 +67,6 @@ public struct WhatsNewView: View, Identifiable {
 				if let buttonTitle = configuration?.buttonTitle {
 					Text(buttonTitle)
 						.bold()
-				} else {
-					Text("OK")
-						.bold()
 				}
 			}
 		}
