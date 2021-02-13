@@ -5,6 +5,22 @@ let listMargin: CGFloat = 25
 
 @available(macOS 11, iOS 13, watchOS 6, tvOS 13, *)
 public struct WhatsNewView: View, Identifiable {
+	public enum InitError: LocalizedError {
+		case couldNotFindPathToVersionFile, configurationDictionaryMalformed
+		case couldNotFindConfigurationFile(path: String)
+
+		public var errorDescription: String? {
+			switch self {
+			case .couldNotFindPathToVersionFile:
+				return "The WhatsNewVersion.plist could not be found in the the main bundle. Did you add it to the project?"
+			case .couldNotFindConfigurationFile(let path):
+				return "The configuration file could not be found at path: \(path)."
+			case .configurationDictionaryMalformed:
+				return "The WhatsNewVersion.plist file seems to be malformed. Check if all the right types are set in the plist-File."
+			}
+		}
+	}
+
 	public let id = UUID()
 	public var configuration: WhatsNewConfiguration?
 	
@@ -80,19 +96,43 @@ public struct WhatsNewView: View, Identifiable {
 		}
 	}
 
+	public init?() throws {
+		if let path = Bundle.main.path(forResource: "WhatsNewVersion", ofType: "plist") {
+			if let versionDictionary = NSDictionary(contentsOfFile: path) as? Dictionary<String, Any> {
+				if let configuration = WhatsNewConfiguration(versionDictionary: versionDictionary) {
+					self.configuration = configuration
+				} else {
+					return nil
+				}
+			} else {
+				throw InitError.configurationDictionaryMalformed
+			}
+		} else {
+			throw InitError.couldNotFindPathToVersionFile
+		}
+	}
+
 	public init(configuration: WhatsNewConfiguration) {
 		self.configuration = configuration
 	}
 
-	public init?(configurationPlistPath: String) {
+	public init?(configurationPlistPath: String) throws {
+		guard FileManager().fileExists(atPath: configurationPlistPath) else {
+			throw InitError.couldNotFindConfigurationFile(path: configurationPlistPath)
+		}
+
 		if let configurationDictionary = NSDictionary(contentsOfFile: configurationPlistPath) as? Dictionary<String, Any> {
 			configuration = WhatsNewConfiguration(dictionary: configurationDictionary)
 		} else {
-			return nil
+			throw InitError.configurationDictionaryMalformed
 		}
 	}
 
-	public init?(versionPlistPath: String) {
+	public init?(versionPlistPath: String) throws {
+		guard FileManager().fileExists(atPath: versionPlistPath) else {
+			throw InitError.couldNotFindConfigurationFile(path: versionPlistPath)
+		}
+
 		if let versionDictionary = NSDictionary(contentsOfFile: versionPlistPath) as? Dictionary<String, Any> {
 			if let configuration = WhatsNewConfiguration(versionDictionary: versionDictionary) {
 				self.configuration = configuration
@@ -100,7 +140,7 @@ public struct WhatsNewView: View, Identifiable {
 				return nil
 			}
 		} else {
-			return nil
+			throw InitError.configurationDictionaryMalformed
 		}
 	}
 
