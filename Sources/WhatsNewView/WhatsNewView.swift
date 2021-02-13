@@ -38,7 +38,7 @@ public struct WhatsNewView: View, Identifiable {
 			}
 			.fixedSize(horizontal: false, vertical: true)
 			.leftAligned()
-			.font(.largeTitle)
+			.font(Font.system(size: 40))
 
 			Group {
 				if let description = configuration?.description {

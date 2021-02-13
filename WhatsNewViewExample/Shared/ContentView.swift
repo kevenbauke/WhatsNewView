@@ -15,77 +15,84 @@ struct ContentView: View {
 	@State private var activeSheet: SheetType?
 
 	var body: some View {
-		Text("WhatsNewView Example")
-			.font(.largeTitle)
-			.padding()
+		ScrollView {
+			Text("WhatsNewView Examples")
+				.font(.largeTitle)
+				.bold()
+				.padding()
 
-		VStack(spacing: 8) {
-			Button(action: {
-				activeSheet = .configuration
-			}) {
-				Text("Configuration (Code only)")
-					.bold()
-			}
-			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .red))
-
-			Button(action: {
-				activeSheet = .plist
-			}) {
-				Text("Plist")
-					.bold()
-			}
-			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .orange))
-
-			Button(action: {
-				activeSheet = .version
-			}) {
-				Text("Version Plist")
-					.bold()
-			}
-			.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .green))
-
-			Divider()
-
-			Group {
-				Text("App Examples")
-
+			VStack(spacing: 8) {
 				Button(action: {
-					activeSheet = .appleIntro
+					activeSheet = .configuration
 				}) {
-					Text("Apple Intro")
+					Text("Configuration (Code only)")
 						.bold()
 				}
-				.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .black))
+				.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .red))
 
 				Button(action: {
-					activeSheet = .appleTVApp
+					activeSheet = .plist
 				}) {
-					Text("Apple TVApp")
+					Text("Plist")
 						.bold()
 				}
-				.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .black))
+				.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .orange))
 
 				Button(action: {
-					activeSheet = .appleResearch
+					activeSheet = .version
 				}) {
-					Text("Apple Research")
+					Text("Version Plist")
 						.bold()
 				}
-				.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .black))
-			}
+				.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .green))
 
-			Divider()
+				Divider()
+					.padding()
 
-			Group {
-				Text("Other Examples")
+				Group {
+					Text("Apple Examples")
+						.font(.title)
 
-				Button(action: {
-					activeSheet = .textOnly
-				}) {
-					Text("Text only")
-						.bold()
+					Button(action: {
+						activeSheet = .appleIntro
+					}) {
+						Text("Apple Intro")
+							.bold()
+					}
+					.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .black))
+
+					Button(action: {
+						activeSheet = .appleTVApp
+					}) {
+						Text("Apple TVApp")
+							.bold()
+					}
+					.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .black))
+
+					Button(action: {
+						activeSheet = .appleResearch
+					}) {
+						Text("Apple Research")
+							.bold()
+					}
+					.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .black))
 				}
-				.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .black))
+
+				Divider()
+					.padding()
+
+				Group {
+					Text("Other Examples")
+						.font(.title)
+
+					Button(action: {
+						activeSheet = .textOnly
+					}) {
+						Text("Text only")
+							.bold()
+					}
+					.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .black))
+				}
 			}
 		}
 		.padding(.vertical)

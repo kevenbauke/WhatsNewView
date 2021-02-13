@@ -6,7 +6,9 @@ struct DefaultExampleData {
 		var configuration = WhatsNewConfiguration()
 		configuration.title = "Welcome to"
 		configuration.accentTitle = "WhatsNewView"
-		configuration.description = "This view can help you give that extra information your user needs at certain points in your app."
+		configuration.description = """
+This view can help you give that extra information your user needs at certain points in your app.
+"""
 
 		configuration.features = features
 		configuration.buttonTitle = "OK"
@@ -47,7 +49,6 @@ struct AppleIntroExampleData {
 		configuration.accentTitle = "\nApp Store Connect"
 		configuration.description = "Manage your app, view sales and trends, and respond to reviews."
 		configuration.accentColor = Color(red: 0.0, green: 122/255, blue: 1.0)
-		configuration.buttonTitle = "OK"
 
 		return configuration
 	}
@@ -91,7 +92,10 @@ struct AppleResearchExampleData {
 	static var configuration: WhatsNewConfiguration {
 		var configuration = WhatsNewConfiguration()
 		configuration.title = "Research &\nYour Privacy"
-		configuration.description = "Privacy is a fundamental human right. And it's critically important when you're taking part in research. To protect your privacy, the following apply to all the studies in the Research app."
+		configuration.description = """
+			Privacy is a fundamental human right. And it's critically important when you're taking part in research.
+			To protect your privacy, the following apply to all the studies in the Research app.
+			"""
 		configuration.accentColor = .accentColor
 		configuration.buttonTitle = "Next"
 
@@ -137,8 +141,14 @@ struct TextOnlyExampleData {
 
 		features.append(WhatsNewFeature(title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"))
 		features.append(WhatsNewFeature(title: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."))
-		features.append(WhatsNewFeature(title: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."))
-		features.append(WhatsNewFeature(description: "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."))
+		features.append(WhatsNewFeature(title: """
+							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+commodo consequat.
+"""))
+		features.append(WhatsNewFeature(description: """
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+"""))
 
 		return features
 	}
