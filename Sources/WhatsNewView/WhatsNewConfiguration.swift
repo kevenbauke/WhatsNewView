@@ -80,7 +80,7 @@ public struct WhatsNewConfiguration {
 			return
 		} else if WhatsNewVersionRepository.isNewVersion {
 			if let versionsDictionary = versionDictionary["Versions"] as? Dictionary<String, Any>,
-			   let currentVersionDictionary = versionsDictionary[WhatsNewVersionRepository.version] as? Dictionary<String, Any> {
+			   let currentVersionDictionary = versionsDictionary[WhatsNewVersionRepository.bundleVersion] as? Dictionary<String, Any> {
 				self.init(dictionary: currentVersionDictionary)
 
 				if title.isEmptyOrNil, let defaultTitle = versionDictionary["DefaultTitle"] as? String,
@@ -122,7 +122,7 @@ private extension String {
 	}
 
 	func replacingKeyWords() -> String {
-		replacingOccurrences(of: KeyWords.versionString, with: WhatsNewVersionRepository.version, options: .caseInsensitive)
+		replacingOccurrences(of: KeyWords.versionString, with: WhatsNewVersionRepository.bundleVersion, options: .caseInsensitive)
 			.replacingOccurrences(of: KeyWords.appnameString, with: Bundle.main.displayName ?? "CFBundleName could not be read", options: .caseInsensitive)
 	}
 }

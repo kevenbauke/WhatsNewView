@@ -142,11 +142,11 @@ struct TextOnlyExampleData {
 		features.append(WhatsNewFeature(title: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"))
 		features.append(WhatsNewFeature(title: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."))
 		features.append(WhatsNewFeature(title: """
-							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-commodo consequat.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 """))
 		features.append(WhatsNewFeature(description: """
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+
 Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 """))
 

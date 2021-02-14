@@ -12,7 +12,7 @@ struct WhatsNewViewExampleApp: App {
 				.onAppear {
 					WhatsNewView.resetVersion()
 					if let path = Bundle.main.path(forResource: "WhatsNewVersion", ofType: "plist") {
-					   whatsNewView = WhatsNewView(versionPlistPath: path)
+					   whatsNewView = try? WhatsNewView(versionPlistPath: path)
 					}
 				}
         }

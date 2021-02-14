@@ -4,9 +4,12 @@ let margin: CGFloat = 40
 let listMargin: CGFloat = 25
 
 @available(macOS 11, iOS 13, watchOS 6, tvOS 13, *)
+/// The main view showing the title, description features and a button. The content comes from the configuration file.
 public struct WhatsNewView: View, Identifiable {
+	/// All possible errors that can occur initializing this view.
 	public enum InitError: LocalizedError {
-		case couldNotFindPathToVersionFile, configurationDictionaryMalformed
+		case couldNotFindPathToVersionFile
+		case configurationDictionaryMalformed
 		case couldNotFindConfigurationFile(path: String)
 
 		public var errorDescription: String? {
@@ -21,14 +24,21 @@ public struct WhatsNewView: View, Identifiable {
 		}
 	}
 
+	/// A unique id to differentiate the different instances and to conform to Identifiable.
 	public let id = UUID()
+	/// The configuration file which holds all the information needed to fill this view with content.
 	public var configuration: WhatsNewConfiguration?
-	
+
+	/// The general space of this view from its superview.
 	private let margin: CGFloat = 40
+
+	/// The space of the list from its superview.
 	private let listMargin: CGFloat = 25
 
+	/// The env variable that represents the presentation mode. Needed to dismiss this view when the button was tapped.
 	@Environment(\.presentationMode) private var presentationMode
 
+	/// The content of the view.
 	public var body: some View {
 		VStack(spacing: 8) {
 			Group {
@@ -96,6 +106,9 @@ public struct WhatsNewView: View, Identifiable {
 		}
 	}
 
+	/// The default init of this class. It automatically searches for the WhatsNewVersion.plist file and configures the configuration file.
+	/// - Remark: The WhatsNewVersion.plisy file has to be placed in the main bundle for this initializer to work.
+	/// - Throws: InitErrors. Each of these errors have a helpful `errorDescription`.
 	public init?() throws {
 		if let path = Bundle.main.path(forResource: "WhatsNewVersion", ofType: "plist") {
 			if let versionDictionary = NSDictionary(contentsOfFile: path) as? Dictionary<String, Any> {
@@ -112,22 +125,9 @@ public struct WhatsNewView: View, Identifiable {
 		}
 	}
 
-	public init(configuration: WhatsNewConfiguration) {
-		self.configuration = configuration
-	}
-
-	public init?(configurationPlistPath: String) throws {
-		guard FileManager().fileExists(atPath: configurationPlistPath) else {
-			throw InitError.couldNotFindConfigurationFile(path: configurationPlistPath)
-		}
-
-		if let configurationDictionary = NSDictionary(contentsOfFile: configurationPlistPath) as? Dictionary<String, Any> {
-			configuration = WhatsNewConfiguration(dictionary: configurationDictionary)
-		} else {
-			throw InitError.configurationDictionaryMalformed
-		}
-	}
-
+	/// An initializer to init the class with a custom path to the version plist file.
+	/// - Parameter versionPlistPath: The path pointing to the version plist file.
+	/// - Throws: InitErrors. Each of these errors have a helpful `errorDescription`.
 	public init?(versionPlistPath: String) throws {
 		guard FileManager().fileExists(atPath: versionPlistPath) else {
 			throw InitError.couldNotFindConfigurationFile(path: versionPlistPath)
@@ -144,10 +144,34 @@ public struct WhatsNewView: View, Identifiable {
 		}
 	}
 
+	/// This initializer is used in case the view should be managed by code.
+	/// - Parameter configuration: The configuration of this view. See `WhatsNewConfiguration` for more details.
+	public init(configuration: WhatsNewConfiguration) {
+		self.configuration = configuration
+	}
+
+	/// An initializer to setup this view with a configuration plist file.
+	/// - Parameter configurationPlistPath: The path to the configuration plist file.
+	/// - Throws: InitErrors. Each of these errors have a helpful `errorDescription`.
+	public init?(configurationPlistPath: String) throws {
+		guard FileManager().fileExists(atPath: configurationPlistPath) else {
+			throw InitError.couldNotFindConfigurationFile(path: configurationPlistPath)
+		}
+
+		if let configurationDictionary = NSDictionary(contentsOfFile: configurationPlistPath) as? Dictionary<String, Any> {
+			configuration = WhatsNewConfiguration(dictionary: configurationDictionary)
+		} else {
+			throw InitError.configurationDictionaryMalformed
+		}
+	}
+
+	/// A debug function to delete the version saved in the framework.
 	public static func resetVersion() {
 		WhatsNewVersionRepository.lastKnownVersion = nil
 	}
 
+	/// A debug function to manually set a specific version the framework should use as last known.
+	/// - Parameter version: The version to be saved. The string should follow the semantic versioning scheme: `https://semver.org`, e.g. 1.0.2.
 	public static func setLastKnownVersion(_ version: String?) {
 		WhatsNewVersionRepository.lastKnownVersion = version
 	}

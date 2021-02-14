@@ -102,13 +102,12 @@ struct ContentView: View {
 				return WhatsNewView(configuration: DefaultExampleData.configuration)
 			case .plist:
 				if let path = Bundle.main.path(forResource: "WhatsNewConfiguration", ofType: "plist"),
-				   let whatsNewView = WhatsNewView(configurationPlistPath: path) {
+				   let whatsNewView = try? WhatsNewView(configurationPlistPath: path) {
 					return whatsNewView
 				}
 			case .version:
 				WhatsNewView.resetVersion()
-				if let path = Bundle.main.path(forResource: "WhatsNewVersion", ofType: "plist"),
-				   let whatsNewView = WhatsNewView(versionPlistPath: path) {
+				if let whatsNewView = try? WhatsNewView() {
 					return whatsNewView
 				}
 			case .appleIntro:

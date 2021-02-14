@@ -1,13 +1,18 @@
 import SwiftUI
 
 @available(macOS 11, iOS 13, watchOS 6, tvOS 13, *)
+/// Represents as single feature containing an image, a title and a description.
 struct WhatsNewFeatureView: View {
+	/// The feature providing the information for this view. See `WhatsNewFeature` for more details.
 	private let feature: WhatsNewFeature
 
+	/// Default initialiser of this view.
+	/// - Parameter feature: The feature holding all the information for this view. See `WhatsNewFeature` for more details.
 	init(feature: WhatsNewFeature) {
 		self.feature = feature
 	}
 
+	/// The content of the view.
 	var body: some View {
 		HStack {
 			feature.image?
