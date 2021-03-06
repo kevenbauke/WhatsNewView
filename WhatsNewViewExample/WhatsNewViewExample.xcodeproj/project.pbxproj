@@ -11,9 +11,15 @@
 		24085BFC25CF5ABD00C6E0FF /* ExampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24085BFA25CF5ABD00C6E0FF /* ExampleData.swift */; };
 		24085C0125CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24085C0025CF5BEE00C6E0FF /* WhatsNewConfiguration.plist */; };
 		24085C0225CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24085C0025CF5BEE00C6E0FF /* WhatsNewConfiguration.plist */; };
+		242EDB0E25DB2EE3007F4545 /* WhatsNewViewExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EDB0D25DB2EE3007F4545 /* WhatsNewViewExampleUITests.swift */; };
+		242EDB1925DB31D7007F4545 /* SnapshotHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242EDB1825DB31D7007F4545 /* SnapshotHelper.swift */; };
 		243D556E25D048AA004C801E /* WhatsNewView in Frameworks */ = {isa = PBXBuildFile; productRef = 243D556D25D048AA004C801E /* WhatsNewView */; };
 		243D557525D05002004C801E /* WhatsNewVersion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 243D555F25D04333004C801E /* WhatsNewVersion.plist */; };
 		243D557825D05002004C801E /* WhatsNewVersion.plist in Resources */ = {isa = PBXBuildFile; fileRef = 243D555F25D04333004C801E /* WhatsNewVersion.plist */; };
+		24A1B8B225E155D30030E747 /* WhatsNewConfigurationExplanation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24A1B8AE25E155150030E747 /* WhatsNewConfigurationExplanation.plist */; };
+		24A1B8B625E155D40030E747 /* WhatsNewConfigurationExplanation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24A1B8AE25E155150030E747 /* WhatsNewConfigurationExplanation.plist */; };
+		24A1B8BE25E15E220030E747 /* WhatsNewVersionExplanation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24A1B8BA25E159DB0030E747 /* WhatsNewVersionExplanation.plist */; };
+		24A1B8C225E15E230030E747 /* WhatsNewVersionExplanation.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24A1B8BA25E159DB0030E747 /* WhatsNewVersionExplanation.plist */; };
 		24B0B2F325CED5E6001775F4 /* WhatsNewViewExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B0B2E025CED5E5001775F4 /* WhatsNewViewExampleApp.swift */; };
 		24B0B2F425CED5E6001775F4 /* WhatsNewViewExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B0B2E025CED5E5001775F4 /* WhatsNewViewExampleApp.swift */; };
 		24B0B2F525CED5E6001775F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B0B2E125CED5E5001775F4 /* ContentView.swift */; };
@@ -23,10 +29,39 @@
 		24B0B30F25CEDA21001775F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B0B2E125CED5E5001775F4 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		242EDB1025DB2EE3007F4545 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 24B0B2DB25CED5E5001775F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 24B0B2E625CED5E6001775F4;
+			remoteInfo = "WhatsNewViewExample (iOS)";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		24A1B89E25DF12A90030E747 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		24085BFA25CF5ABD00C6E0FF /* ExampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleData.swift; sourceTree = "<group>"; };
 		24085C0025CF5BEE00C6E0FF /* WhatsNewConfiguration.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WhatsNewConfiguration.plist; sourceTree = "<group>"; };
+		242EDB0B25DB2EE3007F4545 /* WhatsNewViewExampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsNewViewExampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		242EDB0D25DB2EE3007F4545 /* WhatsNewViewExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewExampleUITests.swift; sourceTree = "<group>"; };
+		242EDB0F25DB2EE3007F4545 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		242EDB1825DB31D7007F4545 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SnapshotHelper.swift; path = fastlane/SnapshotHelper.swift; sourceTree = SOURCE_ROOT; };
 		243D555F25D04333004C801E /* WhatsNewVersion.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WhatsNewVersion.plist; sourceTree = "<group>"; };
+		24A1B8AE25E155150030E747 /* WhatsNewConfigurationExplanation.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WhatsNewConfigurationExplanation.plist; sourceTree = "<group>"; };
+		24A1B8BA25E159DB0030E747 /* WhatsNewVersionExplanation.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = WhatsNewVersionExplanation.plist; sourceTree = "<group>"; };
 		24B0B2E025CED5E5001775F4 /* WhatsNewViewExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsNewViewExampleApp.swift; sourceTree = "<group>"; };
 		24B0B2E125CED5E5001775F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		24B0B2E225CED5E6001775F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -38,6 +73,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		242EDB0825DB2EE3007F4545 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24B0B2E425CED5E6001775F4 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -62,9 +104,21 @@
 			children = (
 				24B0B2E225CED5E6001775F4 /* Assets.xcassets */,
 				243D555F25D04333004C801E /* WhatsNewVersion.plist */,
+				24A1B8BA25E159DB0030E747 /* WhatsNewVersionExplanation.plist */,
 				24085C0025CF5BEE00C6E0FF /* WhatsNewConfiguration.plist */,
+				24A1B8AE25E155150030E747 /* WhatsNewConfigurationExplanation.plist */,
 			);
 			path = Ressources;
+			sourceTree = "<group>";
+		};
+		242EDB0C25DB2EE3007F4545 /* WhatsNewViewExampleUITests */ = {
+			isa = PBXGroup;
+			children = (
+				242EDB1825DB31D7007F4545 /* SnapshotHelper.swift */,
+				242EDB0D25DB2EE3007F4545 /* WhatsNewViewExampleUITests.swift */,
+				242EDB0F25DB2EE3007F4545 /* Info.plist */,
+			);
+			path = WhatsNewViewExampleUITests;
 			sourceTree = "<group>";
 		};
 		243D556C25D048AA004C801E /* Frameworks */ = {
@@ -80,6 +134,7 @@
 				24B0B2DF25CED5E5001775F4 /* Shared */,
 				24B0B2E925CED5E6001775F4 /* iOS */,
 				24B0B2F025CED5E6001775F4 /* macOS */,
+				242EDB0C25DB2EE3007F4545 /* WhatsNewViewExampleUITests */,
 				24B0B2E825CED5E6001775F4 /* Products */,
 				243D556C25D048AA004C801E /* Frameworks */,
 			);
@@ -101,6 +156,7 @@
 			children = (
 				24B0B2E725CED5E6001775F4 /* WhatsNewViewExample.app */,
 				24B0B2EF25CED5E6001775F4 /* WhatsNewViewExample.app */,
+				242EDB0B25DB2EE3007F4545 /* WhatsNewViewExampleUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -125,6 +181,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		242EDB0A25DB2EE3007F4545 /* WhatsNewViewExampleUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 242EDB1425DB2EE3007F4545 /* Build configuration list for PBXNativeTarget "WhatsNewViewExampleUITests" */;
+			buildPhases = (
+				242EDB0725DB2EE3007F4545 /* Sources */,
+				242EDB0825DB2EE3007F4545 /* Frameworks */,
+				242EDB0925DB2EE3007F4545 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				242EDB1125DB2EE3007F4545 /* PBXTargetDependency */,
+			);
+			name = WhatsNewViewExampleUITests;
+			productName = WhatsNewViewExampleUITests;
+			productReference = 242EDB0B25DB2EE3007F4545 /* WhatsNewViewExampleUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		24B0B2E625CED5E6001775F4 /* WhatsNewViewExample (iOS) */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 24B0B2FB25CED5E6001775F4 /* Build configuration list for PBXNativeTarget "WhatsNewViewExample (iOS)" */;
@@ -133,6 +207,7 @@
 				24B0B2E325CED5E6001775F4 /* Sources */,
 				24B0B2E425CED5E6001775F4 /* Frameworks */,
 				24B0B2E525CED5E6001775F4 /* Resources */,
+				24A1B89E25DF12A90030E747 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -175,6 +250,10 @@
 				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1240;
 				TargetAttributes = {
+					242EDB0A25DB2EE3007F4545 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = 24B0B2E625CED5E6001775F4;
+					};
 					24B0B2E625CED5E6001775F4 = {
 						CreatedOnToolsVersion = 12.4;
 					};
@@ -190,6 +269,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ar,
 			);
 			mainGroup = 24B0B2DA25CED5E5001775F4;
 			packageReferences = (
@@ -201,17 +281,27 @@
 			targets = (
 				24B0B2E625CED5E6001775F4 /* WhatsNewViewExample (iOS) */,
 				24B0B2EE25CED5E6001775F4 /* WhatsNewViewExample (macOS) */,
+				242EDB0A25DB2EE3007F4545 /* WhatsNewViewExampleUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		242EDB0925DB2EE3007F4545 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24B0B2E525CED5E6001775F4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24A1B8B225E155D30030E747 /* WhatsNewConfigurationExplanation.plist in Resources */,
 				243D557525D05002004C801E /* WhatsNewVersion.plist in Resources */,
 				24085C0125CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */,
+				24A1B8C225E15E230030E747 /* WhatsNewVersionExplanation.plist in Resources */,
 				24B0B2F725CED5E6001775F4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -220,8 +310,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24A1B8B625E155D40030E747 /* WhatsNewConfigurationExplanation.plist in Resources */,
 				243D557825D05002004C801E /* WhatsNewVersion.plist in Resources */,
 				24085C0225CF5BEE00C6E0FF /* WhatsNewConfiguration.plist in Resources */,
+				24A1B8BE25E15E220030E747 /* WhatsNewVersionExplanation.plist in Resources */,
 				24B0B2F825CED5E6001775F4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +342,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		242EDB0725DB2EE3007F4545 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				242EDB0E25DB2EE3007F4545 /* WhatsNewViewExampleUITests.swift in Sources */,
+				242EDB1925DB31D7007F4545 /* SnapshotHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		24B0B2E325CED5E6001775F4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -272,7 +373,58 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		242EDB1125DB2EE3007F4545 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 24B0B2E625CED5E6001775F4 /* WhatsNewViewExample (iOS) */;
+			targetProxy = 242EDB1025DB2EE3007F4545 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		242EDB1225DB2EE3007F4545 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MY2P7PEUD8;
+				INFOPLIST_FILE = WhatsNewViewExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kevenbauke.WhatsNewViewExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "WhatsNewViewExample (iOS)";
+			};
+			name = Debug;
+		};
+		242EDB1325DB2EE3007F4545 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = MY2P7PEUD8;
+				INFOPLIST_FILE = WhatsNewViewExampleUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.kevenbauke.WhatsNewViewExampleUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "WhatsNewViewExample (iOS)";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		24B0B2F925CED5E6001775F4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -398,7 +550,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevenbauke.WhatsNewViewExample;
 				PRODUCT_NAME = WhatsNewViewExample;
 				SDKROOT = iphoneos;
@@ -421,7 +573,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevenbauke.WhatsNewViewExample;
 				PRODUCT_NAME = WhatsNewViewExample;
 				SDKROOT = iphoneos;
@@ -448,7 +600,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevenbauke.WhatsNewViewExample;
 				PRODUCT_NAME = WhatsNewViewExample;
 				SDKROOT = macosx;
@@ -473,7 +625,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kevenbauke.WhatsNewViewExample;
 				PRODUCT_NAME = WhatsNewViewExample;
 				SDKROOT = macosx;
@@ -484,6 +636,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		242EDB1425DB2EE3007F4545 /* Build configuration list for PBXNativeTarget "WhatsNewViewExampleUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				242EDB1225DB2EE3007F4545 /* Debug */,
+				242EDB1325DB2EE3007F4545 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		24B0B2DE25CED5E5001775F4 /* Build configuration list for PBXProject "WhatsNewViewExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -3,25 +3,25 @@
 <plist version="1.0">
 <dict>
 	<key>AccentColor</key>
-	<string>#B857E8</string>
+	<string>#00C249</string>
 	<key>DefaultTitle</key>
-	<string>What&apos;s new in</string>
+	<string>Default title if not overwritten by the version&apos;s title</string>
 	<key>DefaultAccentTitle</key>
-	<string>Version $(Version)</string>
+	<string>Default accented title as a fallback if the version doesn&apos;t have one.</string>
 	<key>DefaultDescription</key>
-	<string></string>
+	<string>This description is used because the version does not have one.</string>
 	<key>DefaultButtonTitle</key>
-	<string></string>
+	<string>DefaultButtonTitle</string>
 	<key>Welcome</key>
 	<dict>
 		<key>Title</key>
-		<string>Welcome to</string>
+		<string>Welcome Title</string>
 		<key>AccentTitle</key>
 		<string>$(AppName)</string>
 		<key>Description</key>
-		<string>This view can help you give that extra information your user needs at certain points in your app.</string>
+		<string>Weclome Description</string>
 		<key>ButtonTitle</key>
-		<string>Let&apos;s Go</string>
+		<string>Welcome ButtonTitle</string>
 		<key>Features</key>
 		<array>
 			<dict>
@@ -67,52 +67,40 @@
 		<key>1.1.1</key>
 		<dict>
 			<key>Title</key>
-			<string>We released a</string>
+			<string>Title of</string>
 			<key>AccentTitle</key>
-			<string>new Version</string>
+			<string>Version $(version)</string>
 			<key>Description</key>
-			<string>Enjoy the following new features!</string>
+			<string></string>
 			<key>Features</key>
 			<array>
 				<dict>
 					<key>SystemImage</key>
-					<string>1.square</string>
+					<string>photo</string>
 					<key>ImageColor</key>
-					<string>#57ABFF</string>
+					<string>#00B1C2</string>
 					<key>Image</key>
 					<string></string>
 					<key>Title</key>
-					<string>A welcome screen</string>
+					<string>Feature 1 Title</string>
 					<key>Description</key>
-					<string>Welcome your users and introduce important functionality.</string>
+					<string>Feature 1 Description</string>
 				</dict>
 				<dict>
 					<key>SystemImage</key>
-					<string>2.square</string>
+					<string>photo</string>
 					<key>ImageColor</key>
-					<string>#3D9EFF</string>
+					<string>#9200C2</string>
 					<key>Image</key>
 					<string></string>
 					<key>Title</key>
-					<string>A new version screen</string>
+					<string>Feature 2 Title</string>
 					<key>Description</key>
-					<string>Introduce your users to great new features in new versions.</string>
-				</dict>
-				<dict>
-					<key>SystemImage</key>
-					<string>3.square</string>
-					<key>ImageColor</key>
-					<string>#2491FF</string>
-					<key>Image</key>
-					<string></string>
-					<key>Title</key>
-					<string>A simple how to screen</string>
-					<key>Description</key>
-					<string>Help your users and explain a screen or a feature.</string>
+					<string>Feature 2 Description</string>
 				</dict>
 			</array>
 			<key>ButtonTitle</key>
-			<string>Let&apos;s Go</string>
+			<string></string>
 		</dict>
 		<key>1.1.0</key>
 		<dict>

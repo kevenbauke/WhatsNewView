@@ -26,6 +26,7 @@ public struct WhatsNewView: View, Identifiable {
 
 	/// A unique id to differentiate the different instances and to conform to Identifiable.
 	public let id = UUID()
+
 	/// The configuration file which holds all the information needed to fill this view with content.
 	public var configuration: WhatsNewConfiguration?
 

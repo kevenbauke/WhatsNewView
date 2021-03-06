@@ -14,9 +14,9 @@ struct WhatsNewVersionRepository {
 		}
 	}
 
-	/// Returns the current version of the bundle.
-	static var bundleVersion: String {
-		Bundle.main.version
+	/// Saves the current bundle version as the last known version.
+	static func setCurrentVersion() {
+		lastKnownVersion = bundleVersion
 	}
 
 	/// Returns whether a previous version was set or not. A missing version indicates the view was never presented before.
@@ -33,18 +33,14 @@ struct WhatsNewVersionRepository {
 		}
 	}
 
-	/// Saves the current bundle version as the last known version.
-	static func setCurrentVersion() {
-		lastKnownVersion = bundleVersion
+	/// Returns the current version of the bundle.
+	static var bundleVersion: String {
+		Bundle.main.version ?? "CFBundleShortVersionString could not be found"
 	}
 }
 
 private extension Bundle {
-	var version: String {
-		infoDictionary?["CFBundleShortVersionString"] as! String
-	}
-
-	var build: String {
-		infoDictionary?["CFBundleVersion"] as! String
+	var version: String? {
+		infoDictionary?["CFBundleShortVersionString"] as? String
 	}
 }

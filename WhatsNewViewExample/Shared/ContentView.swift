@@ -3,7 +3,7 @@ import WhatsNewView
 
 struct ContentView: View {
 	private enum SheetType: Identifiable {
-		case configuration, plist, version
+		case configuration, plist, plistExplanation, version, versionExplanation
 		case appleIntro, appleTVApp, appleResearch
 		case textOnly
 
@@ -45,6 +45,22 @@ struct ContentView: View {
 						.bold()
 				}
 				.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .green))
+
+				Button(action: {
+					activeSheet = .plistExplanation
+				}) {
+					Text("Explanation Plist")
+						.bold()
+				}
+				.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .purple))
+
+				Button(action: {
+					activeSheet = .versionExplanation
+				}) {
+					Text("Explanation Version Plist")
+						.bold()
+				}
+				.buttonStyle(RoundedRectangleButtonStyle(backgroundColor: .purple))
 
 				Divider()
 					.padding()
@@ -101,14 +117,37 @@ struct ContentView: View {
 			case .configuration:
 				return WhatsNewView(configuration: DefaultExampleData.configuration)
 			case .plist:
-				if let path = Bundle.main.path(forResource: "WhatsNewConfiguration", ofType: "plist"),
-				   let whatsNewView = try? WhatsNewView(configurationPlistPath: path) {
-					return whatsNewView
+				guard let path = Bundle.main.path(forResource: "WhatsNewConfiguration", ofType: "plist") else {
+				  assertionFailure("The WhatsNewConfiguration.plist could not be found.")
+				  return nil
+				}
+
+				return try? WhatsNewView(configurationPlistPath: path)
+
+			case .plistExplanation:
+				guard let path = Bundle.main.path(forResource: "WhatsNewConfigurationExplanation", ofType: "plist") else {
+				  assertionFailure("The WhatsNewConfigurationExplanation.plist could not be found.")
+				  return nil
+				}
+
+				do {
+					return try WhatsNewView(configurationPlistPath: path)
+				} catch {
+					print("Something went wrong while initialising the WhatsNewView. Error: \(error.localizedDescription).")
 				}
 			case .version:
-				WhatsNewView.resetVersion()
-				if let whatsNewView = try? WhatsNewView() {
-					return whatsNewView
+//				WhatsNewView.resetVersion()
+				return try? WhatsNewView()
+			case .versionExplanation:
+				WhatsNewView.setLastKnownVersion("1.1.0")
+				guard let path = Bundle.main.path(forResource: "WhatsNewVersionExplanation", ofType: "plist") else {
+				  assertionFailure("The WhatsNewVersionExplanation.plist could not be found.")
+				  return nil
+				}
+				do {
+					return try WhatsNewView(versionPlistPath: path)
+				} catch {
+					print("Something went wrong while initialising the WhatsNewView. Error: \(error.localizedDescription).")
 				}
 			case .appleIntro:
 				return WhatsNewView(configuration: AppleIntroExampleData.configuration)

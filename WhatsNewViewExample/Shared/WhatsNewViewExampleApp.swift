@@ -3,18 +3,16 @@ import WhatsNewView
 
 @main
 struct WhatsNewViewExampleApp: App {
-	@State var whatsNewView: WhatsNewView?
+//	@State var whatsNewView: WhatsNewView?
 
     var body: some Scene {
         WindowGroup {
             ContentView()
 //				.sheet(item: $whatsNewView) { $0 }
-				.onAppear {
-					WhatsNewView.resetVersion()
-					if let path = Bundle.main.path(forResource: "WhatsNewVersion", ofType: "plist") {
-					   whatsNewView = try? WhatsNewView(versionPlistPath: path)
-					}
-				}
+//				.onAppear {
+//					WhatsNewView.setLastKnownVersion("1.2.0")
+//					whatsNewView = try? WhatsNewView()
+//				}
         }
     }
 }

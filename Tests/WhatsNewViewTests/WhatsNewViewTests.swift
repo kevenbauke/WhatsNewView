@@ -8,8 +8,4 @@ final class WhatsNewViewTests: XCTestCase {
         // results.
 //        XCTAssertEqual(WhatsNewView().text, "Hello, World!")
     }
-
-    static var allTests = [
-        ("testExample", testExample),
-    ]
 }

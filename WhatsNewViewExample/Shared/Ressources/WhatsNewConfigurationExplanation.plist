@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Title</key>
+	<string>Title</string>
+	<key>AccentTitle</key>
+	<string>AccentTitle</string>
+	<key>Description</key>
+	<string>Description</string>
+	<key>AccentColor</key>
+	<string>#00C249</string>
+	<key>Features</key>
+	<array>
+		<dict>
+			<key>SystemImage</key>
+			<string>photo</string>
+			<key>ImageColor</key>
+			<string>#00B1C2</string>
+			<key>Image</key>
+			<string></string>
+			<key>Title</key>
+			<string>Feature 1 Title</string>
+			<key>Description</key>
+			<string>Feature 1 Description</string>
+		</dict>
+		<dict>
+			<key>SystemImage</key>
+			<string>photo</string>
+			<key>ImageColor</key>
+			<string>#9200C2</string>
+			<key>Image</key>
+			<string></string>
+			<key>Title</key>
+			<string>Feature 2 Title</string>
+			<key>Description</key>
+			<string>Feature 2 Description</string>
+		</dict>
+	</array>
+	<key>ButtonTitle</key>
+	<string>ButtonTitle</string>
+</dict>
+</plist>

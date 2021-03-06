@@ -43,15 +43,15 @@ public struct WhatsNewConfiguration {
 		buttonTitle = (dictionary["ButtonTitle"] as? String)?.replacingKeyWords()
 
 		if let hexString = dictionary["AccentColor"] as? String, !hexString.isEmpty {
-			accentColor = Color(hex: hexString)
+			accentColor = Color(hex: hexString) ?? .accentColor
 		}
 
 		let featuresDictionaries: [Dictionary] = dictionary["Features"] as? Array<Dictionary<String, String?>> ?? []
 		features = [WhatsNewFeature]()
 		for featureDictionary in featuresDictionaries {
 			var feature = WhatsNewFeature()
-			feature.title = featureDictionary["Title"] as? String
-			feature.description = featureDictionary["Description"] as? String
+			feature.title = (featureDictionary["Title"] as? String)?.replacingKeyWords()
+			feature.description = (featureDictionary["Description"] as? String)?.replacingKeyWords()
 
 			if let systemImageName = featureDictionary["SystemImage"] as? String, !systemImageName.isEmpty {
 				feature.image = Image(systemName: systemImageName)
@@ -70,42 +70,42 @@ public struct WhatsNewConfiguration {
 	}
 
 	init?(versionDictionary: Dictionary<String, Any>) {
+		func checkAndSetDefaultStrings() {
+			if title.isEmptyOrNil, let defaultTitle = versionDictionary["DefaultTitle"] as? String,
+			   !defaultTitle.isEmpty {
+				title = defaultTitle.replacingKeyWords()
+			}
+
+			if accentTitle.isEmptyOrNil, let defaultAccentTitle = versionDictionary["DefaultAccentTitle"] as? String,
+			   !defaultAccentTitle.isEmpty {
+				accentTitle = defaultAccentTitle.replacingKeyWords()
+			}
+
+			if description.isEmptyOrNil, let defaultDescription = versionDictionary["DefaultDescription"] as? String,
+			   !defaultDescription.isEmpty {
+				description = defaultDescription.replacingKeyWords()
+			}
+
+			if buttonTitle.isEmptyOrNil, let defaultButtonTitle = versionDictionary["DefaultButtonTitle"] as? String,
+			   !defaultButtonTitle.isEmpty {
+				buttonTitle = defaultButtonTitle.replacingKeyWords()
+			}
+
+			if accentColor == .accentColor, let hexString = versionDictionary["DefaultAccentColor"] as? String {
+				accentColor = Color(hex: hexString) ?? .accentColor
+			}
+		}
+
 		if WhatsNewVersionRepository.isInitialStart, let welcomeDictionary = versionDictionary["Welcome"] as? Dictionary<String, Any>, !welcomeDictionary.isEmpty {
 			self.init(dictionary: welcomeDictionary)
-
-			if let hexString = versionDictionary["AccentColor"] as? String {
-				accentColor = Color(hex: hexString)
-			}
+			checkAndSetDefaultStrings()
 
 			return
 		} else if WhatsNewVersionRepository.isNewVersion {
 			if let versionsDictionary = versionDictionary["Versions"] as? Dictionary<String, Any>,
 			   let currentVersionDictionary = versionsDictionary[WhatsNewVersionRepository.bundleVersion] as? Dictionary<String, Any> {
 				self.init(dictionary: currentVersionDictionary)
-
-				if title.isEmptyOrNil, let defaultTitle = versionDictionary["DefaultTitle"] as? String,
-				   !defaultTitle.isEmpty {
-					title = defaultTitle.replacingKeyWords()
-				}
-
-				if accentTitle.isEmptyOrNil, let defaultAccentTitle = versionDictionary["DefaultAccentTitle"] as? String,
-				   !defaultAccentTitle.isEmpty {
-					accentTitle = defaultAccentTitle.replacingKeyWords()
-				}
-
-				if description.isEmptyOrNil, let defaultDescription = versionDictionary["DefaultDescription"] as? String,
-				   !defaultDescription.isEmpty {
-					description = defaultDescription.replacingKeyWords()
-				}
-
-				if buttonTitle.isEmptyOrNil, let defaultButtonTitle = versionDictionary["DefaultButtonTitle"] as? String,
-				   !defaultButtonTitle.isEmpty {
-					buttonTitle = defaultButtonTitle.replacingKeyWords()
-				}
-
-				if let hexString = versionDictionary["AccentColor"] as? String {
-					accentColor = Color(hex: hexString)
-				}
+				checkAndSetDefaultStrings()
 
 				return
 			}

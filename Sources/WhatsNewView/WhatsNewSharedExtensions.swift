@@ -19,7 +19,7 @@ extension View {
 
 @available(macOS 11, iOS 13, watchOS 6, tvOS 13, *)
 extension Color {
-	init(hex: String) {
+	init?(hex: String) {
 		let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
 		var int: UInt64 = 0
 		Scanner(string: hex).scanHexInt64(&int)
@@ -32,7 +32,7 @@ extension Color {
 		case 8: // ARGB (32-bit)
 			(a, r, g, b) = (int >> 24, int >> 16 & 0xFF, int >> 8 & 0xFF, int & 0xFF)
 		default:
-			(a, r, g, b) = (1, 1, 1, 0)
+			return nil
 		}
 
 		self.init(
