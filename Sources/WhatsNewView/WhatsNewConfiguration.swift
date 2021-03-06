@@ -91,7 +91,7 @@ public struct WhatsNewConfiguration {
 				buttonTitle = defaultButtonTitle.replacingKeyWords()
 			}
 
-			if accentColor == .accentColor, let hexString = versionDictionary["DefaultAccentColor"] as? String {
+			if accentColor == .accentColor, let hexString = versionDictionary["AccentColor"] as? String {
 				accentColor = Color(hex: hexString) ?? .accentColor
 			}
 		}
