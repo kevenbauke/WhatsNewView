@@ -3,6 +3,18 @@ import SwiftUI
 let margin: CGFloat = 40
 let listMargin: CGFloat = 25
 
+@available(iOS 13, *)
+public protocol WhatsNewViewDelegate: AnyObject {
+	func whatsNewViewDidTapActionButton(_ whatsnewView: WhatsNewView)
+	func whatsNewViewDidDismiss(_ whatsnewView: WhatsNewView)
+}
+
+@available(iOS 13, *)
+extension WhatsNewViewDelegate {
+	func whatsNewViewDidTapActionButton(_ whatsnewView: WhatsNewView) {}
+	func whatsNewViewDidDismiss(_ whatsnewView: WhatsNewView) {}
+}
+
 @available(macOS 11, iOS 13, watchOS 6, tvOS 13, *)
 /// The main view showing the title, description features and a button. The content comes from the configuration file.
 public struct WhatsNewView: View, Identifiable {
@@ -29,6 +41,9 @@ public struct WhatsNewView: View, Identifiable {
 
 	/// The configuration file which holds all the information needed to fill this view with content.
 	public var configuration: WhatsNewConfiguration?
+
+	/// A delegate to communicate changes to the receiver.
+	public weak var delegate: WhatsNewViewDelegate?
 
 	/// The general space of this view from its superview.
 	private let margin: CGFloat = 40
@@ -87,6 +102,7 @@ public struct WhatsNewView: View, Identifiable {
 			if let action = configuration?.buttonAction {
 				action()
 			}
+			delegate?.whatsNewViewDidTapActionButton(self)
 			dismiss()
 		}) {
 			Group {
@@ -102,7 +118,6 @@ public struct WhatsNewView: View, Identifiable {
 			if let dismissAction = configuration?.dismissAction {
 				dismissAction()
 			}
-			
 			dismiss()
 		}
 	}
@@ -178,6 +193,7 @@ public struct WhatsNewView: View, Identifiable {
 	}
 
 	private func dismiss() {
+		delegate?.whatsNewViewDidDismiss(self)
 		WhatsNewVersionRepository.setCurrentVersion()
 	}
 }
