@@ -4,9 +4,13 @@ import SwiftUI
 public class WhatsNewViewController: UIHostingController<WhatsNewView> {
 	public init?(versionPlistPath: String) throws {
 		do {
-			guard let whatsNewView = try WhatsNewView(versionPlistPath: versionPlistPath) else { return nil
+			guard var whatsNewView = try WhatsNewView(versionPlistPath: versionPlistPath) else {
+				return nil
 			}
 			super.init(rootView: whatsNewView)
+			whatsNewView.configuration?.dismissAction = {
+				self.dismiss(animated: true)
+			}
 		} catch {
 			throw error
 		}
@@ -27,7 +31,7 @@ public class WhatsNewViewController: UIHostingController<WhatsNewView> {
 		}
 	}
 
-	@objc required dynamic init?(coder aDecoder: NSCoder) {
+	@objc required dynamic internal init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
