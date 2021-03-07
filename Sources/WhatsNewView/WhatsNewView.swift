@@ -16,8 +16,8 @@ public protocol WhatsNewViewDelegate: AnyObject {
 
 @available(iOS 13, *)
 extension WhatsNewViewDelegate {
-	func whatsNewViewDidTapActionButton(_ whatsnewView: WhatsNewView) {}
-	func whatsNewViewDidDismiss(_ whatsnewView: WhatsNewView) {}
+	public func whatsNewViewDidTapActionButton(_ whatsnewView: WhatsNewView) {}
+	public func whatsNewViewDidDismiss(_ whatsnewView: WhatsNewView) {}
 }
 
 @available(macOS 11, iOS 13, watchOS 6, tvOS 13, *)
