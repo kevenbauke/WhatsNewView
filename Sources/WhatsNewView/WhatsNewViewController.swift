@@ -2,6 +2,15 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 public class WhatsNewViewController: UIHostingController<WhatsNewView> {
+//	public init?() {
+//		guard let path = Bundle.main.path(forResource: "WhatsNewVersion", ofType: "plist") else { return }
+//
+//		guard let whatsNewView = try? WhatsNewViewController(versionPlistPath: path) else {
+//			return nil
+//		}
+//
+//		super.init(rootView: whatsNewView)
+//	}
 
 	public init?(versionPlistPath: String) throws {
 		do {
@@ -10,7 +19,7 @@ public class WhatsNewViewController: UIHostingController<WhatsNewView> {
 			}
 
 			super.init(rootView: whatsNewView)
-			whatsNewViewHostingController = self
+			rootView.hostingController = self
 		} catch {
 			throw error
 		}
@@ -19,7 +28,7 @@ public class WhatsNewViewController: UIHostingController<WhatsNewView> {
 	public init(configuration: WhatsNewConfiguration) {
 		let whatsNewView = WhatsNewView(configuration: configuration)
 		super.init(rootView: whatsNewView)
-		whatsNewViewHostingController = self
+		rootView.hostingController = self
 	}
 
 	public init?(configurationPlistPath: String) throws {
@@ -28,7 +37,7 @@ public class WhatsNewViewController: UIHostingController<WhatsNewView> {
 				return nil
 			}
 			super.init(rootView: whatsNewView)
-			whatsNewViewHostingController = self
+			rootView.hostingController = self
 		} catch {
 			throw error
 		}

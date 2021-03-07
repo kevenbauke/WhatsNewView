@@ -20,10 +20,6 @@ extension WhatsNewViewDelegate {
 	public func whatsNewViewDidDismiss(_ whatsnewView: WhatsNewView) {}
 }
 
-/// A hosting controller used to configure the view with UIKit.
-@available(iOS 13.0, *)
-internal var whatsNewViewHostingController: WhatsNewViewController?
-
 @available(macOS 11, iOS 13, watchOS 6, tvOS 13, *)
 /// The main view showing the title, description features and a button. The content comes from the configuration file.
 public struct WhatsNewView: View, Identifiable {
@@ -53,6 +49,9 @@ public struct WhatsNewView: View, Identifiable {
 
 	/// A delegate to communicate changes to the receiver.
 	public weak var delegate: WhatsNewViewDelegate?
+
+	/// A hosting controller used to configure the view with UIKit.
+	internal var hostingController: WhatsNewViewController?
 
 	/// The general space of this view from its superview.
 	private let margin: CGFloat = 40
@@ -202,7 +201,7 @@ public struct WhatsNewView: View, Identifiable {
 	}
 
 	private func dismiss() {
-		whatsNewViewHostingController?.dismiss(animated: true)
+		hostingController?.dismiss(animated: true)
 		delegate?.whatsNewViewDidDismiss(self)
 		WhatsNewVersionRepository.setCurrentVersion()
 	}
