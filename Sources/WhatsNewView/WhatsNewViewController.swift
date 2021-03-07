@@ -42,6 +42,7 @@ public class WhatsNewViewController: UIHostingController<WhatsNewView> {
 	}
 
 	public override func viewDidLoad() {
+		super.viewDidLoad()
 		whatsNewView.delegate = self
 	}
 }
