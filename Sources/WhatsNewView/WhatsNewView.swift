@@ -50,6 +50,9 @@ public struct WhatsNewView: View, Identifiable {
 	/// A delegate to communicate changes to the receiver.
 	public weak var delegate: WhatsNewViewDelegate?
 
+	/// A hosting controller used to configure the view with UIKit.
+	internal var hostingController: WhatsNewViewController?
+
 	/// The general space of this view from its superview.
 	private let margin: CGFloat = 40
 
@@ -198,6 +201,7 @@ public struct WhatsNewView: View, Identifiable {
 	}
 
 	private func dismiss() {
+		hostingController?.dismiss(animated: true)
 		delegate?.whatsNewViewDidDismiss(self)
 		WhatsNewVersionRepository.setCurrentVersion()
 	}
