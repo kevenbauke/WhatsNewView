@@ -5,7 +5,12 @@ let listMargin: CGFloat = 25
 
 @available(iOS 13, *)
 public protocol WhatsNewViewDelegate: AnyObject {
+	/// Called whenever the action button was tapped.
+	/// - Parameter whatsnewView: The WhatsNewView in which the action occured.
 	func whatsNewViewDidTapActionButton(_ whatsnewView: WhatsNewView)
+
+	/// Called whenever the view got dismissed.
+	/// - Parameter whatsnewView: The WhatsNewView in which the action occured.
 	func whatsNewViewDidDismiss(_ whatsnewView: WhatsNewView)
 }
 

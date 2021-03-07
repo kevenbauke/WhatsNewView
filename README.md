@@ -121,6 +121,16 @@ if let whatsNewViewController = try? WhatsNewViewController(versionPlistPath: pa
 }
 ```
 
+### Delegate methods
+**WhatsNewView** has two delegate methods.
+
+```swift
+func whatsNewViewDidTapActionButton(_ whatsnewView: WhatsNewView)
+func whatsNewViewDidDismiss(_ whatsnewView: WhatsNewView)
+```
+
+The first one gets called when the action button was pressed and the second whenever the view was dismissed.
+
 ## Structure of the plists
 | Configuration-Plist-Structure | Screen result |
 | --- | --- |

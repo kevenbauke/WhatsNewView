@@ -2,21 +2,28 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 public class WhatsNewViewController: UIHostingController<WhatsNewView> {
+
+	public var whatsNewView: WhatsNewView
+
 	public init?(versionPlistPath: String) throws {
 		do {
-			guard var whatsNewView = try WhatsNewView(versionPlistPath: versionPlistPath) else {
+			guard let whatsNewView = try WhatsNewView(versionPlistPath: versionPlistPath) else {
 				return nil
 			}
+
+			self.whatsNewView = whatsNewView
 			
 			super.init(rootView: whatsNewView)
-			whatsNewView.delegate = self
+			self.whatsNewView.delegate = self
 		} catch {
 			throw error
 		}
 	}
 
 	public init(configuration: WhatsNewConfiguration) {
-		super.init(rootView: WhatsNewView(configuration: configuration))
+		whatsNewView = WhatsNewView(configuration: configuration)
+		super.init(rootView: whatsNewView)
+		whatsNewView.delegate = self
 	}
 
 	public init?(configurationPlistPath: String) throws {
@@ -24,7 +31,9 @@ public class WhatsNewViewController: UIHostingController<WhatsNewView> {
 			guard let whatsNewView = try WhatsNewView(configurationPlistPath: configurationPlistPath) else {
 				return nil
 			}
+			self.whatsNewView = whatsNewView
 			super.init(rootView: whatsNewView)
+			self.whatsNewView.delegate = self
 		} catch {
 			throw error
 		}
