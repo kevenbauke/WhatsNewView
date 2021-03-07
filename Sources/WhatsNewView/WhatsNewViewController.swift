@@ -38,10 +38,3 @@ public class WhatsNewViewController: UIHostingController<WhatsNewView> {
 		fatalError("init(coder:) has not been implemented")
 	}
 }
-
-@available(iOS 13.0, *)
-extension WhatsNewViewController: WhatsNewViewDelegate {
-	public func whatsNewViewDidDismiss(_ whatsnewView: WhatsNewView) {
-		self.dismiss(animated: true)
-	}
-}
