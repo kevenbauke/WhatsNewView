@@ -10,7 +10,7 @@ public class WhatsNewViewController: UIHostingController<WhatsNewView> {
 			whatsNewView.configuration?.dismissAction = {
 				print("I was dismissed.")
 			}
-			super.init(rootView: whatsNewView)
+			super.init(rootView: WhatsNewView(configuration: whatsNewView.configuration!))
 		} catch {
 			throw error
 		}
