@@ -2,16 +2,6 @@ import SwiftUI
 
 @available(iOS 13.0, *)
 public class WhatsNewViewController: UIHostingController<WhatsNewView> {
-//	public init?() {
-//		guard let path = Bundle.main.path(forResource: "WhatsNewVersion", ofType: "plist") else { return }
-//
-//		guard let whatsNewView = try? WhatsNewViewController(versionPlistPath: path) else {
-//			return nil
-//		}
-//
-//		super.init(rootView: whatsNewView)
-//	}
-
 	public init?(versionPlistPath: String) throws {
 		do {
 			guard let whatsNewView = try WhatsNewView(versionPlistPath: versionPlistPath) else {
