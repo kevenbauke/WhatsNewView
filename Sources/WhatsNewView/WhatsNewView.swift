@@ -87,8 +87,7 @@ public struct WhatsNewView: View, Identifiable {
 			if let action = configuration?.buttonAction {
 				action()
 			}
-
-			presentationMode.wrappedValue.dismiss()
+			dismiss()
 		}) {
 			Group {
 				if let buttonTitle = configuration?.buttonTitle {
@@ -103,7 +102,8 @@ public struct WhatsNewView: View, Identifiable {
 			if let dismissAction = configuration?.dismissAction {
 				dismissAction()
 			}
-			WhatsNewVersionRepository.setCurrentVersion()
+			
+			dismiss()
 		}
 	}
 
@@ -175,6 +175,10 @@ public struct WhatsNewView: View, Identifiable {
 	/// - Parameter version: The version to be saved. The string should follow the semantic versioning scheme: `https://semver.org`, e.g. 1.0.2.
 	public static func setLastKnownVersion(_ version: String?) {
 		WhatsNewVersionRepository.lastKnownVersion = version
+	}
+
+	private func dismiss() {
+		WhatsNewVersionRepository.setCurrentVersion()
 	}
 }
 

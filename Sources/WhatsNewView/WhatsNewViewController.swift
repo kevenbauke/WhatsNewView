@@ -7,10 +7,11 @@ public class WhatsNewViewController: UIHostingController<WhatsNewView> {
 			guard var whatsNewView = try WhatsNewView(versionPlistPath: versionPlistPath) else {
 				return nil
 			}
-			whatsNewView.configuration?.buttonAction = {
-				print("I was dismissed.")
+			super.init(rootView: whatsNewView)
+			
+			whatsNewView.configuration?.dismissAction = {
+				self.dismiss(animated: true)
 			}
-			super.init(rootView: WhatsNewView(configuration: whatsNewView.configuration!))
 		} catch {
 			throw error
 		}
