@@ -41,6 +41,8 @@ The **WhatsNewView** can be configured three ways:
 
 The easiest way to use **WhatsNewView**. It is used to welcome your user and show new features for each version. You only need to create a plist with the name `WhatsNewVersion.plist` and change it for each version. An example plist can be found [here](WhatsNewViewExample/Shared/Ressources/WhatsNewVersion.plist).
 
+#### SwiftUI
+
 ```swift
 // This looks for the WhatsNewVersion.plist in your main bundle and creates the view for you.
 let whatsNewView = try? WhatsNewView()
@@ -51,6 +53,12 @@ You can also set a specific path for your own configuration plist using a dedica
 let whatsNewView = try? WhatsNewView(versionPlistPath: path)
 ```
 
+#### UIKit
+
+```swift
+let controller = try? WhatsNewViewController(versionPlistPath: path)
+```
+
 The versioning is all automated. The user initially gets greeted with a welcome view and all other time with a version view. You simply have to put a new entry for each version into the version plist. Whenever the **WhatsNewView** is created it looks for the version in the plist and reads the content from that version. If **WhatsNewView** for the version was shown already, the initialiser will return nil so you know you don't need to present it.
 
 More information about how to setup the version plist and the versioning can be found [here]().
@@ -58,7 +66,7 @@ More information about how to setup the version plist and the versioning can be 
 ### 2. Configuration Plist-File - Content from a Plist
 There is a specific initialiser to configure the WhatsNewView with a configuration plist-file:
 
-```
+```swift
 let whatsNewView = try? WhatsNewView(configurationPlistPath: path)
 ```
 
@@ -68,7 +76,7 @@ An example configuration file can be found [here](WhatsNewViewExample/Shared/Res
 
 Of course you can use code as well with the help of a `WhatsNewConfiguration` object.
 
-```
+```swift
 let configuration = WhatsNewConfiguration()
 let whatsNewView = WhatsNewView(configuration: configuration)
 ```
@@ -81,7 +89,7 @@ You can use the view as any other view. The usual case would be to present it as
 
 #### When a condition was met
 
-```
+```swift
 @State var shouldPresentWhatsNewView = true
 
 // Shows the view whenever you change shouldPresentWhatsNewView to true.
@@ -93,7 +101,7 @@ ContentView()
 
 #### On appearance of a view
 
-```
+```swift
 @State var whatsNewView: WhatsNewView?
 
 // Shows the sheet every time the ContentView is shown.
@@ -102,6 +110,15 @@ ContentView()
   .onAppear {
     whatsNewView = try? WhatsNewView()
   }
+```
+
+#### UIKit
+```swift
+guard let path = Bundle.main.path(forResource: "WhatsNewVersion", ofType: "plist") else { return }
+
+if let whatsNewViewController = try? WhatsNewViewController(versionPlistPath: path) {
+	presentingController?.present(whatsNewViewController, animated: true)
+}
 ```
 
 ## Structure of the plists
